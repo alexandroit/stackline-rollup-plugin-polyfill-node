@@ -1,0 +1,107 @@
+{
+  "schema": "stackline-production-dependency-review-v1",
+  "observedAt": "2026-08-30T19:59:37Z",
+  "closureFile": "dist/production-closure.json",
+  "advisoryEvidence": {
+    "command": "npm audit --omit=dev --audit-level=low",
+    "result": "PASS_ZERO_FINDINGS",
+    "source": "https://registry.npmjs.org/-/npm/v1/security/advisories/bulk"
+  },
+  "root": {
+    "name": "@stackline/rollup-plugin-polyfill-node",
+    "version": "1.0.0",
+    "classification": "PASS",
+    "license": "MIT"
+  },
+  "reviews": [
+    {
+      "name": "@rollup/plugin-inject",
+      "version": "5.0.5",
+      "classification": "PASS",
+      "license": "MIT",
+      "maintenance": "Current non-deprecated release in the maintained official Rollup plugins repository",
+      "source": "https://registry.npmjs.org/@rollup%2fplugin-inject"
+    },
+    {
+      "name": "@rollup/pluginutils",
+      "version": "5.4.0",
+      "classification": "PASS",
+      "license": "MIT",
+      "maintenance": "Current non-deprecated release, published 2026-05-29 from the maintained official Rollup plugins repository",
+      "source": "https://registry.npmjs.org/@rollup%2fpluginutils"
+    },
+    {
+      "name": "rollup",
+      "version": "4.63.1",
+      "classification": "PASS",
+      "license": "MIT",
+      "maintenance": "Current non-deprecated release, published 2026-08-28 from the official Rollup repository",
+      "source": "https://registry.npmjs.org/rollup"
+    },
+    {
+      "namePrefix": "@rollup/rollup-",
+      "version": "4.63.1",
+      "expectedNodeCount": 25,
+      "classification": "PASS",
+      "license": "MIT",
+      "maintenance": "Exact optional platform artifacts belonging to current rollup@4.63.1",
+      "source": "https://registry.npmjs.org/rollup"
+    },
+    {
+      "name": "@napi-rs/lzma-linux-x64-gnu",
+      "version": "1.5.1",
+      "classification": "PASS",
+      "license": "MIT",
+      "maintenance": "Current non-deprecated optional platform release, published 2026-07-14",
+      "source": "https://registry.npmjs.org/@napi-rs%2flzma-linux-x64-gnu"
+    },
+    {
+      "name": "fsevents",
+      "version": "2.3.3",
+      "classification": "PASS",
+      "license": "MIT",
+      "maintenance": "Current non-deprecated macOS optional dependency from the active fsevents repository",
+      "source": "https://registry.npmjs.org/fsevents"
+    },
+    {
+      "name": "@jridgewell/sourcemap-codec",
+      "version": "1.6.0",
+      "classification": "PASS",
+      "license": "MIT",
+      "maintenance": "Current non-deprecated release, published 2026-08-28 from the maintained sourcemaps repository",
+      "source": "https://registry.npmjs.org/@jridgewell%2fsourcemap-codec"
+    },
+    {
+      "name": "magic-string",
+      "version": "0.30.21",
+      "classification": "PASS",
+      "license": "MIT",
+      "maintenance": "Maintained non-deprecated 0.30 compatibility line selected by current @rollup/plugin-inject, published 2025-10-24",
+      "source": "https://registry.npmjs.org/magic-string"
+    },
+    {
+      "name": "estree-walker",
+      "version": "2.0.2",
+      "classification": "PASS",
+      "license": "MIT",
+      "maintenance": "Non-deprecated CommonJS compatibility line intentionally required by current @rollup/plugin-inject; maintained source has a newer ESM-only major",
+      "source": "https://registry.npmjs.org/estree-walker"
+    },
+    {
+      "name": "@types/estree",
+      "version": "1.0.9",
+      "classification": "PASS",
+      "license": "MIT",
+      "maintenance": "Current non-deprecated release, published 2026-05-06 from DefinitelyTyped",
+      "source": "https://registry.npmjs.org/@types%2festree"
+    },
+    {
+      "name": "picomatch",
+      "version": "4.0.7",
+      "classification": "PASS",
+      "license": "MIT",
+      "maintenance": "Current non-deprecated fixed release, published 2026-08-24",
+      "source": "https://registry.npmjs.org/picomatch"
+    }
+  ]
+}

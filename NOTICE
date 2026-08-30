@@ -1,0 +1,24 @@
+@stackline/rollup-plugin-polyfill-node
+
+This distribution is an independent Stackline-maintained derivative of
+rollup-plugin-polyfill-node by Fred K. Schott, which derives from
+ionic-team/rollup-plugin-node-polyfills.
+
+Copyright (c) 2020 Fred K. Schott
+Copyright (c) 2019 these people (Ionic-origin code)
+
+The original and derivative plugin code is provided under the MIT License in
+LICENSE.md. Vendored browser polyfills retain their original copyright and
+license notices. See THIRD_PARTY_NOTICES.md, VENDORED_COMPONENTS.json, and the
+license files under polyfills/ for the component-level inventory.
+
+Parts of the URL, util, stream, assert, events, querystring, string decoder,
+and related compatibility corpus are derived from Node.js code and retain the
+applicable Joyent, Inc. and other Node contributors MIT notices in source and
+generated artifacts. The zlib implementation includes work from pako and
+retains its notice at polyfills/__zlib-lib/LICENSE.
+
+The names Stackline, Fred K. Schott, Ionic, Rollup, Node.js, OpenJS Foundation,
+and the names of other projects or contributors are used only for attribution
+and identification. This package is not affiliated with, sponsored by, or
+endorsed by those upstream projects, organizations, or contributors.

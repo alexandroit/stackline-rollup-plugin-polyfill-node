@@ -2,3 +2,16 @@
 lib
 dist
 node_modules
+artifact
+coverage
+.nyc_output
+.rollup.cache
+.cache
+*.log
+*.tgz
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env
+.env.*
+!.env.example

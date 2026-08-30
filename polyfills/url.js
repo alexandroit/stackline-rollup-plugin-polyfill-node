@@ -28,6 +28,35 @@ import {parse as qsParse,stringify as qsStringify} from 'querystring';
 const URL = global.URL;
 const URLSearchParams = global.URLSearchParams;
 
+// Keep this projection aligned with Node's public url.urlToHttpOptions API.
+// The surrounding Node.js license applies to this derived implementation.
+export function urlToHttpOptions(url) {
+  var hostname = url.hostname;
+  var pathname = url.pathname;
+  var port = url.port;
+  var username = url.username;
+  var password = url.password;
+  var search = url.search;
+  var options = Object.assign(Object.create(null), url, {
+    protocol: url.protocol,
+    hostname: hostname && hostname[0] === '[' ? hostname.slice(1, -1) : hostname,
+    hash: url.hash,
+    search: search,
+    pathname: pathname,
+    path: (pathname || '') + (search || ''),
+    href: url.href
+  });
+
+  if (port !== '') {
+    options.port = Number(port);
+  }
+  if (username || password) {
+    options.auth = decodeURIComponent(username) + ':' + decodeURIComponent(password);
+  }
+
+  return options;
+}
+
 export {
   urlParse as parse,
   urlResolve as resolve,
@@ -45,6 +74,7 @@ export default {
   resolveObject: urlResolveObject,
   fileURLToPath: urlFileURLToPath,
   format: urlFormat,
+  urlToHttpOptions: urlToHttpOptions,
   Url: Url,
 
   // WHATWG API

@@ -1,5 +1,9 @@
 import POLYFILLS from './polyfills';
 const EMPTY_PATH = POLYFILLS['empty.js'];
+const UTIL_TYPES = `
+export { isDate, isMap, isNativeError, isRegExp } from 'util';
+export { types as default } from 'util';
+`;
 
 export function getModules() {
   const libs = new Map<string, string>();
@@ -8,6 +12,7 @@ export function getModules() {
   libs.set('global', POLYFILLS['global.js']);
   libs.set('buffer', POLYFILLS['buffer-es6.js']);
   libs.set('util', POLYFILLS['util.js']);
+  libs.set('util/types', UTIL_TYPES);
   libs.set('sys', libs.get('util') as string);
   libs.set('events', POLYFILLS['events.js']);
   libs.set('stream', POLYFILLS['stream.js']);

@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ES2023", "DOM", "ESNext.Disposable"],
+    "types": [],
+    "noEmit": true
+  },
+  "files": ["modern.mts", "modern-cjs.cts"]
+}

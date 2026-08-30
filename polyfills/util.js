@@ -69,6 +69,69 @@ export function format(f) {
   return str;
 };
 
+// This is intentionally limited to the format tokens supported by Node's
+// public API that can be represented by this browser inspect implementation.
+var formatWithOptionsRegExp = /%[sdifjoOc%]/g;
+export function formatWithOptions(inspectOptions) {
+  if (!isObject(inspectOptions)) {
+    throw new TypeError('The "inspectOptions" argument must be of type object');
+  }
+
+  var args = Array.prototype.slice.call(arguments, 1);
+  if (args.length === 0) return '';
+
+  var f = args[0];
+  if (!isString(f)) {
+    var objects = [];
+    for (var objectIndex = 0; objectIndex < args.length; objectIndex++) {
+      objects.push(formatWithOptionsValue(args[objectIndex], inspectOptions));
+    }
+    return objects.join(' ');
+  }
+
+  var i = 1;
+  var len = args.length;
+  var str = String(f).replace(formatWithOptionsRegExp, function(x) {
+    if (x === '%%') return '%';
+    if (i >= len) return x;
+    switch (x) {
+      case '%s': return String(args[i++]);
+      case '%d': return Number(args[i++]);
+      case '%i': return parseInt(args[i++]);
+      case '%f': return parseFloat(args[i++]);
+      case '%j':
+        try {
+          return JSON.stringify(args[i++]);
+        } catch (_) {
+          return '[Circular]';
+        }
+      case '%O': return inspect(args[i++], inspectOptions);
+      case '%o':
+        var value = args[i++];
+        var options = _extend({}, inspectOptions);
+        options.showHidden = true;
+        options.depth = 4;
+        return inspect(value, options);
+      case '%c':
+        i++;
+        return '';
+      default:
+        return x;
+    }
+  });
+
+  for (; i < len; i++) {
+    str += ' ' + formatWithOptionsValue(args[i], inspectOptions);
+  }
+  return str;
+}
+
+function formatWithOptionsValue(value, inspectOptions) {
+  if (isString(value)) return value;
+  if (isObject(value) || isFunction(value)) return inspect(value, inspectOptions);
+  return String(value);
+}
+
 
 // Mark that a method should not be used.
 // Returns a modified function which warns once by default.
@@ -505,6 +568,10 @@ export function isError(e) {
       (objectToString(e) === '[object Error]' || e instanceof Error);
 }
 
+export function isNativeError(e) {
+  return isError(e);
+}
+
 export function isFunction(arg) {
   return typeof arg === 'function';
 }
@@ -521,6 +588,26 @@ export function isPrimitive(arg) {
 export function isBuffer(maybeBuf) {
   return Buffer.isBuffer(maybeBuf);
 }
+
+var mapHas = typeof Map !== 'undefined' && Map.prototype.has;
+export function isMap(value) {
+  if (!mapHas || !isObject(value)) return false;
+  try {
+    mapHas.call(value, value);
+    return true;
+  } catch (_) {
+    return false;
+  }
+}
+
+// Deliberately bounded to predicates this browser polyfill can support. New
+// predicates require their own browser implementation and differential tests.
+export var types = {
+  isDate: isDate,
+  isMap: isMap,
+  isNativeError: isNativeError,
+  isRegExp: isRegExp
+};
 
 function objectToString(o) {
   return Object.prototype.toString.call(o);
@@ -696,6 +783,7 @@ export default {
   isPrimitive: isPrimitive,
   isFunction: isFunction,
   isError: isError,
+  isNativeError: isNativeError,
   isDate: isDate,
   isObject: isObject,
   isRegExp: isRegExp,
@@ -710,6 +798,8 @@ export default {
   inspect: inspect,
   deprecate: deprecate,
   format: format,
+  formatWithOptions: formatWithOptions,
+  types: types,
   debuglog: debuglog,
   promisify: promisify,
   callbackify: callbackify,

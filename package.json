@@ -1,54 +1,112 @@
 {
-  "name": "rollup-plugin-polyfill-node",
-  "version": "0.13.0",
-  "main": "dist/index.js",
-  "module": "dist/es/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "pretest": "npm run build",
-    "test": "mocha",
-    "prebuild": "rm -rf dist && mkdir dist",
-    "build": "npm run build:constants && npm run build:polyfills && npm run collect:polyfills && npm run build:bundlers",
-    "build:bundlers": "tsc -p . && rollup -c",
-    "build:polyfills": "node scripts/build-polyfills.js",
-    "build:constants": "node scripts/build-constants.js",
-    "collect:polyfills": "node scripts/collect-polyfills.js",
-    "release": "np --no-yarn --no-release-draft",
-    "browser-test": "serve browser-test/dist",
-    "prebrowser-test": "npm run build && node ./browser-test/index.js"
+  "name": "@stackline/rollup-plugin-polyfill-node",
+  "version": "1.0.0",
+  "description": "Compatibility-first Rollup polyfills for supported Node.js built-ins in browsers",
+  "keywords": ["rollup", "rollup-plugin", "browser", "node", "polyfill", "stackline"],
+  "license": "MIT",
+  "author": "Stackline maintainers",
+  "contributors": [
+    "Fred K. Schott (original rollup-plugin-polyfill-node maintainer)",
+    "Ionic Team rollup-plugin-node-polyfills contributors"
+  ],
+  "homepage": "https://alexandro.net/docs/vanilla/rollup-plugin-polyfill-node/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexandroit/stackline-rollup-plugin-polyfill-node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alexandroit/stackline-rollup-plugin-polyfill-node/issues"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/es/index.js",
+  "types": "./dist/index.d.cts",
+  "typings": "./dist/index.d.cts",
+  "typesVersions": {
+    "<4.7": {
+      "*": ["dist/legacy.d.ts"]
+    }
+  },
+  "type": "commonjs",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/es/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.js"
+      },
+      "default": "./dist/index.js"
+    },
+    "./dist/es/*": "./dist/es/*",
+    "./dist/*": "./dist/*",
+    "./package.json": "./package.json"
   },
   "files": [
-    "dist"
+    "dist",
+    "CHANGELOG.md",
+    "COMPATIBILITY.md",
+    "LICENSE.md",
+    "MIGRATION.md",
+    "NOTICE",
+    "PRODUCTION_DEPENDENCY_REVIEW.json",
+    "polyfills/LICENSE-browserify-fs.txt",
+    "polyfills/LICENSE-buffer-es6.txt",
+    "polyfills/LICENSE-crypto-browserify.txt",
+    "polyfills/LICENSE-process-es6.txt",
+    "polyfills/__zlib-lib/LICENSE",
+    "README.md",
+    "SECURITY.md",
+    "SUPPORT_MATRIX.md",
+    "THIRD_PARTY_NOTICES.md",
+    "VENDORED_COMPONENTS.json",
+    "sbom.cdx.json"
   ],
-  "keywords": [
-    "rollup-plugin"
-  ],
-  "author": "",
-  "license": "MIT",
-  "dependencies": {
-    "@rollup/plugin-inject": "^5.0.4"
+  "engines": {
+    "node": ">=14.0.0"
   },
   "peerDependencies": {
     "rollup": "^1.20.0 || ^2.0.0 || ^3.0.0 || ^4.0.0"
   },
-  "devDependencies": {
-    "@rollup/plugin-commonjs": "^25.0.5",
-    "@rollup/plugin-json": "^6.0.1",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "browserify-fs": "^1.0.0",
-    "buffer-es6": "^4.9.3",
-    "crypto-browserify": "^3.11.0",
-    "debug": "^4.1.1",
-    "glob": "^7.1.6",
-    "mocha": "^10.2.0",
-    "np": "^8.0.4",
-    "process-es6": "^0.11.6",
-    "rollup": "^4.0.2",
-    "serve": "^11.3.2",
-    "typescript": "^5.2.2"
+  "peerDependenciesMeta": {
+    "rollup": {
+      "optional": true
+    }
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/FredKSchott/rollup-plugin-polyfill-node"
+  "dependencies": {
+    "@rollup/plugin-inject": "5.0.5"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "0.18.5",
+    "@types/node": "20.19.43",
+    "publint": "0.3.24",
+    "rollup": "4.63.1",
+    "typescript": "5.9.3",
+    "typescript-3-9": "npm:typescript@3.9.10"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "node scripts/clean.mjs",
+    "collect:polyfills": "node scripts/collect-polyfills.mjs",
+    "build": "npm run clean && npm run collect:polyfills && tsc -p . && rollup -c && node scripts/prepare-dist.mjs && node scripts/build-production-closure.mjs && node scripts/build-sbom.mjs",
+    "lint": "tsc -p . --noEmit && node scripts/check-source.mjs",
+    "test:upstream": "node scripts/test-runner.mjs test/index.js",
+    "test:compatibility": "node scripts/test-runner.mjs test/compatibility.test.js",
+    "test:types": "node node_modules/typescript-3-9/bin/tsc -p test/types/tsconfig.legacy.json && tsc -p test/types/tsconfig.modern.json",
+    "test": "npm run test:upstream && npm run test:compatibility && npm run test:types",
+    "check:reproducible": "node scripts/check-reproducible.mjs",
+    "check:package": "publint && attw --pack .",
+    "check:licenses": "node scripts/check-licenses.mjs",
+    "check:closure": "node scripts/check-production-closure.mjs",
+    "check:packed": "node scripts/check-packed-consumers.mjs",
+    "pack:check": "npm pack --dry-run",
+    "audit:production": "npm audit --omit=dev --audit-level=low",
+    "audit:source": "npm audit --audit-level=low",
+    "verify": "npm run lint && npm run build && npm test && npm run check:reproducible && npm run check:package && npm run check:licenses && npm run check:closure && npm run check:packed && npm run pack:check && npm run audit:production && npm run audit:source",
+    "prepack": "npm run build"
   }
 }

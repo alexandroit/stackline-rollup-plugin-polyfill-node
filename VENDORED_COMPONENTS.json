@@ -1,0 +1,56 @@
+{
+  "schema": "stackline-vendored-components-v1",
+  "upstream": {
+    "package": "rollup-plugin-polyfill-node@0.13.0",
+    "repository": "https://github.com/FredKSchott/rollup-plugin-polyfill-node",
+    "commit": "31face71b94b8408a907f04753318dff589adc2f",
+    "license": "MIT"
+  },
+  "components": [
+    {
+      "name": "ionic-team/rollup-plugin-node-polyfills",
+      "kind": "source-baseline",
+      "license": "MIT",
+      "source": "https://github.com/ionic-team/rollup-plugin-node-polyfills",
+      "notice": "LICENSE.md"
+    },
+    {
+      "name": "buffer-es6",
+      "version": "4.9.3",
+      "kind": "vendored-polyfill",
+      "license": "MIT AND BSD-3-Clause",
+      "source": "https://github.com/calvinmetcalf/buffer-es6",
+      "notice": "polyfills/LICENSE-buffer-es6.txt"
+    },
+    {
+      "name": "process-es6",
+      "version": "0.11.6",
+      "kind": "vendored-polyfill",
+      "license": "MIT",
+      "source": "https://github.com/calvinmetcalf/node-process-es6",
+      "notice": "polyfills/LICENSE-process-es6.txt"
+    },
+    {
+      "name": "Node.js browser shim corpus",
+      "kind": "vendored-polyfill",
+      "license": "MIT",
+      "source": "https://github.com/nodejs/node",
+      "notice": "Copyright and license headers are retained inside every generated polyfill source string."
+    },
+    {
+      "name": "pako zlib implementation",
+      "kind": "vendored-polyfill",
+      "license": "MIT",
+      "source": "https://github.com/nodeca/pako",
+      "notice": "polyfills/__zlib-lib/LICENSE"
+    },
+    {
+      "name": "historical browserify-fs and crypto-browserify inventories",
+      "kind": "notice-only-not-runtime-mapped",
+      "license": "MIXED_PER_NOTICES",
+      "source": "https://github.com/FredKSchott/rollup-plugin-polyfill-node/tree/31face71b94b8408a907f04753318dff589adc2f/polyfills",
+      "notice": "polyfills/LICENSE-browserify-fs.txt and polyfills/LICENSE-crypto-browserify.txt",
+      "runtimeStatus": "The fs and crypto implementations are not present in or mapped from the shipped polyfill corpus."
+    }
+  ]
+}

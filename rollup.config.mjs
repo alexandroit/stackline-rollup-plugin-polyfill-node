@@ -4,12 +4,14 @@ export default {
 	external: [
 		'path',
 		'crypto',
+		'module',
 		'@rollup/plugin-inject'
 	],
 	output: ['es','cjs'].map((format) => ({
 		dir: `dist/${format==='es' ? 'es' : ''}`,
 		exports: 'auto',
 		format,
+		interop: 'auto',
 		generatedCode: {
 			constBindings: true
 		},

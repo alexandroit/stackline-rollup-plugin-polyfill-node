@@ -1,0 +1,1926 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:e31af8ca-f766-41be-aa51-f3f75af44300",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "type": "library",
+      "name": "@stackline/rollup-plugin-polyfill-node",
+      "version": "1.0.0",
+      "purl": "pkg:npm/%40stackline/rollup-plugin-polyfill-node@1.0.0"
+    },
+    "properties": [
+      {
+        "name": "stackline:upstream-commit",
+        "value": "31face71b94b8408a907f04753318dff589adc2f"
+      },
+      {
+        "name": "stackline:vendored-file-count",
+        "value": "50"
+      },
+      {
+        "name": "stackline:production-node-count-including-root",
+        "value": "36"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "@jridgewell/sourcemap-codec",
+      "version": "1.6.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@jridgewell%2Fsourcemap-codec@1.6.0",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@jridgewell/sourcemap-codec"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "false"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@napi-rs/lzma-linux-x64-gnu",
+      "version": "1.5.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@napi-rs%2Flzma-linux-x64-gnu@1.5.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@napi-rs/lzma-linux-x64-gnu"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/plugin-inject",
+      "version": "5.0.5",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Fplugin-inject@5.0.5",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/plugin-inject"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "false"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/pluginutils",
+      "version": "5.4.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Fpluginutils@5.4.0",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/pluginutils"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "false"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/rollup-android-arm-eabi",
+      "version": "4.63.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Frollup-android-arm-eabi@4.63.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/rollup-android-arm-eabi"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/rollup-android-arm64",
+      "version": "4.63.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Frollup-android-arm64@4.63.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/rollup-android-arm64"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/rollup-darwin-arm64",
+      "version": "4.63.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Frollup-darwin-arm64@4.63.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/rollup-darwin-arm64"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/rollup-darwin-x64",
+      "version": "4.63.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Frollup-darwin-x64@4.63.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/rollup-darwin-x64"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/rollup-freebsd-arm64",
+      "version": "4.63.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Frollup-freebsd-arm64@4.63.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/rollup-freebsd-arm64"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/rollup-freebsd-x64",
+      "version": "4.63.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Frollup-freebsd-x64@4.63.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/rollup-freebsd-x64"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/rollup-linux-arm-gnueabihf",
+      "version": "4.63.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Frollup-linux-arm-gnueabihf@4.63.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/rollup-linux-arm-gnueabihf"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/rollup-linux-arm-musleabihf",
+      "version": "4.63.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Frollup-linux-arm-musleabihf@4.63.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/rollup-linux-arm-musleabihf"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/rollup-linux-arm64-gnu",
+      "version": "4.63.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Frollup-linux-arm64-gnu@4.63.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/rollup-linux-arm64-gnu"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/rollup-linux-arm64-musl",
+      "version": "4.63.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Frollup-linux-arm64-musl@4.63.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/rollup-linux-arm64-musl"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/rollup-linux-loong64-gnu",
+      "version": "4.63.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Frollup-linux-loong64-gnu@4.63.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/rollup-linux-loong64-gnu"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/rollup-linux-loong64-musl",
+      "version": "4.63.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Frollup-linux-loong64-musl@4.63.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/rollup-linux-loong64-musl"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/rollup-linux-ppc64-gnu",
+      "version": "4.63.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Frollup-linux-ppc64-gnu@4.63.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/rollup-linux-ppc64-gnu"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/rollup-linux-ppc64-musl",
+      "version": "4.63.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Frollup-linux-ppc64-musl@4.63.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/rollup-linux-ppc64-musl"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/rollup-linux-riscv64-gnu",
+      "version": "4.63.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Frollup-linux-riscv64-gnu@4.63.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/rollup-linux-riscv64-gnu"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/rollup-linux-riscv64-musl",
+      "version": "4.63.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Frollup-linux-riscv64-musl@4.63.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/rollup-linux-riscv64-musl"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/rollup-linux-s390x-gnu",
+      "version": "4.63.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Frollup-linux-s390x-gnu@4.63.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/rollup-linux-s390x-gnu"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/rollup-linux-x64-gnu",
+      "version": "4.63.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Frollup-linux-x64-gnu@4.63.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/rollup-linux-x64-gnu"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/rollup-linux-x64-musl",
+      "version": "4.63.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Frollup-linux-x64-musl@4.63.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/rollup-linux-x64-musl"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/rollup-openbsd-x64",
+      "version": "4.63.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Frollup-openbsd-x64@4.63.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/rollup-openbsd-x64"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/rollup-openharmony-arm64",
+      "version": "4.63.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Frollup-openharmony-arm64@4.63.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/rollup-openharmony-arm64"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/rollup-win32-arm64-msvc",
+      "version": "4.63.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Frollup-win32-arm64-msvc@4.63.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/rollup-win32-arm64-msvc"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/rollup-win32-ia32-msvc",
+      "version": "4.63.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Frollup-win32-ia32-msvc@4.63.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/rollup-win32-ia32-msvc"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/rollup-win32-x64-gnu",
+      "version": "4.63.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Frollup-win32-x64-gnu@4.63.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/rollup-win32-x64-gnu"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@rollup/rollup-win32-x64-msvc",
+      "version": "4.63.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@rollup%2Frollup-win32-x64-msvc@4.63.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@rollup/rollup-win32-x64-msvc"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "@types/estree",
+      "version": "1.0.9",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/@types%2Festree@1.0.9",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/@types/estree"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "false"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "estree-walker",
+      "version": "2.0.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/estree-walker@2.0.2",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/estree-walker"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "false"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "fsevents",
+      "version": "2.3.3",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/fsevents@2.3.3",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/fsevents"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "true"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "magic-string",
+      "version": "0.30.21",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/magic-string@0.30.21",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/magic-string"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "false"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "picomatch",
+      "version": "4.0.7",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/picomatch@4.0.7",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/picomatch"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "false"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "rollup",
+      "version": "4.63.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/rollup@4.63.1",
+      "properties": [
+        {
+          "name": "stackline:install-path",
+          "value": "node_modules/rollup"
+        },
+        {
+          "name": "stackline:optional",
+          "value": "false"
+        },
+        {
+          "name": "stackline:peer",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "ionic-team/rollup-plugin-node-polyfills",
+      "version": "vendored-at-upstream-0.13.0",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/ionic-team/rollup-plugin-node-polyfills"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:kind",
+          "value": "source-baseline"
+        },
+        {
+          "name": "stackline:notice",
+          "value": "LICENSE.md"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "buffer-es6",
+      "version": "4.9.3",
+      "licenses": [
+        {
+          "expression": "MIT AND BSD-3-Clause"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/calvinmetcalf/buffer-es6"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:kind",
+          "value": "vendored-polyfill"
+        },
+        {
+          "name": "stackline:notice",
+          "value": "polyfills/LICENSE-buffer-es6.txt"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "process-es6",
+      "version": "0.11.6",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/calvinmetcalf/node-process-es6"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:kind",
+          "value": "vendored-polyfill"
+        },
+        {
+          "name": "stackline:notice",
+          "value": "polyfills/LICENSE-process-es6.txt"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "Node.js browser shim corpus",
+      "version": "vendored-at-upstream-0.13.0",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/nodejs/node"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:kind",
+          "value": "vendored-polyfill"
+        },
+        {
+          "name": "stackline:notice",
+          "value": "Copyright and license headers are retained inside every generated polyfill source string."
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "pako zlib implementation",
+      "version": "vendored-at-upstream-0.13.0",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/nodeca/pako"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:kind",
+          "value": "vendored-polyfill"
+        },
+        {
+          "name": "stackline:notice",
+          "value": "polyfills/__zlib-lib/LICENSE"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "historical browserify-fs and crypto-browserify inventories",
+      "version": "vendored-at-upstream-0.13.0",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/FredKSchott/rollup-plugin-polyfill-node/tree/31face71b94b8408a907f04753318dff589adc2f/polyfills"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:kind",
+          "value": "notice-only-not-runtime-mapped"
+        },
+        {
+          "name": "stackline:notice",
+          "value": "polyfills/LICENSE-browserify-fs.txt and polyfills/LICENSE-crypto-browserify.txt"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/__http-lib/capability.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1c6187df1723159dfb0c2458e7fcb25a15805269532bc84f8d72f217d40f1c34"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/__http-lib/request.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "51095845b4b1e41a06da826e7e7e0f2a2def74eed8ee837bd172e4b10972ffac"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/__http-lib/response.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e254e3a1779bda38fc238c24cd0e6e17475ec6ae9364069449cbb4dc5ee8d9a6"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/__http-lib/to-arraybuffer.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f7d8a66f241f63d3e8c948322aacdb6e378f7cd12834a4c55cdf17cbc7b17966"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/__readable-stream/buffer-list.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c3e65fc88e34c4768931f029c2c4a1e7f4809e41d16cb3807844f0e9a321377d"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/__readable-stream/duplex.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "cee04b23652c9897b678d30c0eda8c9232127d5485c3258d6cb3d58dba308fe6"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/__readable-stream/passthrough.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3c999f5e9b2f96a0a4657eaf7bd20ed88995b04dee27852be6ac8d6e9f3d3621"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/__readable-stream/readable.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "689667820dd88114b9e7328b4f46023e9401232292ba9008a9a5e3e7c2ad7ebe"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/__readable-stream/transform.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "864f162110bfbbeee5dad267f71cbbd859d03c78b2802dbde5ae66e3abb2b0c8"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/__readable-stream/writable.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "61fda5583e42e11e5c6114e345fd883d66dccd6ebc2205c9dc8f3b6d5a5d3323"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/__zlib-lib/adler32.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7407dff35ee9b95a800a37e8560208d548065f8832f02fe35c743547f60cab12"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/__zlib-lib/binding.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3ee4111f8a6869641783c9fdd7953178d305c6931e6085e6b6c8b9a14878b196"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/__zlib-lib/crc32.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d6e074de8eeb089c78aa3d555075cece9256c51b8b07c59a78f4c0a01b8ff71f"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/__zlib-lib/deflate.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "49f91a70028104c76b90a375222adecb6f23ffc874368d4f595d55df5958d15e"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/__zlib-lib/inffast.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3c68b1c5c7f4d743cb4a1511d524f72e94db5502a3e53a69c524b1075e5f2cb0"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/__zlib-lib/inflate.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "55c580a9e8784b06ca6ac1675e7f07e5ddf480ba8c459f5191e3d5ff66fede81"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/__zlib-lib/inftrees.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6251979200ee3b747615e1142f5e42f133420eca92a5209ee60e0c2f0da954dc"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/__zlib-lib/LICENSE",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3bc404ffa7888053253eedcc5a667619aa08dc1be0bea400e5ff28c51602180f"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/__zlib-lib/messages.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7860a8d3c873c28e4f5f92db9ca3e45006e21b084210d87b8b7775cddccf05ed"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/__zlib-lib/trees.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ff8c535b89c5e2501b88d063d75e1126b5efd882b30b556a10e49e784ebc3746"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/__zlib-lib/utils.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0e8be5388fc4fad56a4d0faab2d9e2cc63742c5d14ba90dbca5e619477508bc4"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/__zlib-lib/zstream.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "fd5307a05a41c8b7e6b8e7efe35bbd830d90b20f60694ea0aba4d4fbe2c2f26a"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/assert.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "95a0041f40a0719ab81c07d30a1954aa1747275b93d679c26d07947838da9fb6"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/buffer-es6.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7122d02f8a9c0e0c30a99140d850b0cc9633ea607090e88947b7347b9f49bec6"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/console.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "15457f0b9df081985d45e51234a32b7e7ff25427743b47143c5ce15a0a8d7395"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/constants.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ba2bff6ccb95b773a7ab6460e633a64ff299796025c1e4317ee8f95a22109b6a"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/domain.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "66cdd1bc66e1c2eb2a9e3afd53596ad53e3f5e97440c93109b50b7f03d7c4f40"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/empty.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "450f0af4f4c1ecc4c7180f2e364c8a59bfed69dd350fb6b47bce8641c2a37786"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/events.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "479e1fd70d12a32d34d419521b27f6526c3b571d1cbab52c542d04aab79f3308"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/global.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "33ddeeeff9cb6193df8ae5e776f1dccb8060215f20f7d86f1bb2c8b5f84fb26b"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/http.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "88a8eb2225aacd697181d54ce5e0e15578dc9a760602a368f6ceae2d781cbe56"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/inherits.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "edfbb12fadf6c5a5ddb8236c4a64042ee9690729bc1910a4818b2abc744e228b"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/LICENSE-browserify-fs.txt",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5610fa64c64775fee9fb3ca5ef19af08bb7cc7130da10628ff222f34744444b3"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/LICENSE-buffer-es6.txt",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "db1459ad1b9604ee84aa9d58389f15c9d3d4a4382b29f267512a50c4524d1281"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/LICENSE-crypto-browserify.txt",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "57e5ec88eb77433e724542f53b42730ff00be933c096da4c68e1ad67a421d5b6"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/LICENSE-process-es6.txt",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a5c279433a2e1240c20f474ed791891ae78bd52249747887be931e4c8a9b5e4c"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/os.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "57f37ac701b3eb088db0c05a86ee892b55850756809da52deb659ef87cbb6bed"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/path.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7c7d823b0a57010bca692d44c5417d11bb6591675c1657d16d080bd9d20554f2"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/process-es6.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "683b5d025aaa058606441e4ac0a98fcdf7e2e652776e8dbec0fc42385ce12f12"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/punycode.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f33d2ae09639332adc9592d3ed1f82255e14590ba11aa5c551af1dd391eb7df4"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/querystring.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "73738d352f12f91d8907bea9d3eaf59a30520519b5e10e90677156138f14a969"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/setimmediate.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "59704cae26f3ad0e7a883587f9a096102348a5c6f9bdb115bfe22a69f06377f0"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/stream.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "088060b9d8b553f8870f7c2d109761b3c1349098bce8471e5d91cf165f50cd46"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/string-decoder.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a29e715bfbaa012c59804e697b28d36344a086cab874456dba6ebcf6675c889c"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/timers.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "57d1a3388ad5c430cefaca697353fe17c902a311ab209e3644b47259ade35132"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/tty.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "45ce586c5264fd7e955258a58218a6c967d7dcb67f18002ab639f9c76b248702"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/url.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "339c53e24357425ed5b2c86b7bae27f0544f276d9cef7756f69ba43eadccf7a6"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/util.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ab1b9114c9d7911d4419570c4d66b552350b2b1ceb0c194e01ca4d14dd0d7046"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/vm.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1baabc227ab5925bcc9ca52edac5afbc31c5dbb4b852439a8e42b84db5df81f2"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "polyfills/zlib.js",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6deb1c7275a540ad095a5a413dfba6ffd84d614b50dfbb94437ef9b471100e04"
+        }
+      ],
+      "properties": [
+        {
+          "name": "stackline:bundled",
+          "value": "true"
+        }
+      ]
+    }
+  ]
+}

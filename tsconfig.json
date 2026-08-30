@@ -4,9 +4,12 @@
     "moduleResolution": "node",
     "module": "ES2020",
     "target": "es2018",
+    "lib": ["ES2023", "DOM", "ESNext.Disposable"],
     "declaration": true,
     "outDir": "lib",
-    "declarationDir": "dist"
+    "declarationDir": "dist",
+    "skipLibCheck": false,
+    "forceConsistentCasingInFileNames": true
   },
   "include": [
     "src"

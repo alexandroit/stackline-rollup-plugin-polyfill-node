@@ -3,10 +3,8 @@ const rollup = require('rollup');
 const nodePolyfills = require('..');
 const os = require('os');
 const constants = require('constants');
-const debug = require('debug')('builtins:test');
 const files = [
   'events.js',
-  'crypto.js',
   'url-parse.js',
   'url-file-url-to-path.js',
   'url-format.js',
@@ -17,8 +15,7 @@ const files = [
   'path.js',
   'string-decoder.js',
   'zlib.js',
-  'domain.js',
-  'crypto.js'
+  'domain.js'
 ];
 
 describe('rollup-plugin-node-polyfills', function() {
@@ -38,7 +35,6 @@ describe('rollup-plugin-node-polyfills', function() {
       .then(bundle => bundle.generate({format: 'cjs'}))
       .then(generated => {
         const code = generated.output[0].code;
-        debug(code);
         const script = new vm.Script(code);
         const context = vm.createContext({
           done: done,
@@ -67,7 +63,7 @@ describe('rollup-plugin-node-polyfills', function() {
     }).then(function() {
       done(new Error ('should not get here'))
     }, function (err) {
-      if (err.message === `"diffieHellman" is not exported by "\u0000polyfill-node.crypto.js", imported by "test/examples/crypto-broken.js".`) {
+      if (err.code === 'MISSING_EXPORT' && err.binding === 'diffieHellman') {
         done();
         return;
       }

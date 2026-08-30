@@ -5,7 +5,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const npm = process.platform === 'win32' ? 'npm.cmd' : 'npm';
+const npmCli = process.env.npm_execpath;
+if (!npmCli) throw new Error('npm_execpath is required for reproducibility builds');
 
 async function inventory(directory, prefix = '') {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -30,9 +31,9 @@ async function snapshot() {
   };
 }
 
-execFileSync(npm, ['run', 'build'], { cwd: root, stdio: 'inherit' });
+execFileSync(process.execPath, [npmCli, 'run', 'build'], { cwd: root, stdio: 'inherit' });
 const first = await snapshot();
-execFileSync(npm, ['run', 'build'], { cwd: root, stdio: 'inherit' });
+execFileSync(process.execPath, [npmCli, 'run', 'build'], { cwd: root, stdio: 'inherit' });
 const second = await snapshot();
 if (JSON.stringify(first) !== JSON.stringify(second)) throw new Error('Two clean builds produced different bytes');
 console.log(`reproducible build: pass (${first.dist.length} dist files)`);

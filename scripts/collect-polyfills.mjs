@@ -22,7 +22,7 @@ async function listFiles(directory, prefix = '') {
 const files = await listFiles(polyfillsRoot);
 const contents = {};
 for (const relative of files) {
-  contents[relative] = await readFile(path.join(polyfillsRoot, relative), 'utf8');
+  contents[relative] = (await readFile(path.join(polyfillsRoot, relative), 'utf8')).replace(/\r\n?/g, '\n');
 }
 
 await writeFile(

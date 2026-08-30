@@ -200,8 +200,19 @@ describe('source compatibility', function() {
     const nodePath = plugin.resolveId('node:path');
 
     assert.strictEqual(nodePath.id, barePath.id);
+    assert.strictEqual(plugin.resolveId('node:util/types').id, plugin.resolveId('util/types').id);
     assert.strictEqual(plugin.resolveId('node:global'), null);
     assert.strictEqual(plugin.resolveId('node:not-a-real-builtin'), null);
+  });
+
+  it('normalizes injected Windows filenames to stable POSIX paths', function() {
+    const plugin = nodePolyfills({ baseDir: 'C:\\workspace\\package', include: null });
+    const importer = 'C:\\workspace\\package\\test\\example.js';
+    const filenameId = plugin.resolveId('\0node-polyfills:filename', importer).id;
+    const dirnameId = plugin.resolveId('\0node-polyfills:dirname', importer).id;
+
+    assert.strictEqual(plugin.load(filenameId), 'export default "/test/example.js"');
+    assert.strictEqual(plugin.load(dirnameId), 'export default "/test"');
   });
 
   it('injects distinct paths with deterministic virtual module IDs', async function() {

@@ -1,0 +1,10 @@
+{
+  "moduleFormat": "CommonJS and ESM",
+  "name": "@stackline/rollup-plugin-polyfill-node",
+  "peerRange": "Rollup ^1.20.0 || ^2.0.0 || ^3.0.0 || ^4.0.0",
+  "productionDependencies": 1,
+  "runtimeFloor": "Node.js 14",
+  "types": "TypeScript 3.9-compatible declarations",
+  "upstreamBaseline": "rollup-plugin-polyfill-node 0.13.0",
+  "version": "1.0.0"
+}

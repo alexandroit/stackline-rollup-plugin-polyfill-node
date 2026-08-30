@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /docs/vanilla/rollup-plugin-polyfill-node/
+
+Sitemap: https://alexandro.net/docs/vanilla/rollup-plugin-polyfill-node/sitemap.xml

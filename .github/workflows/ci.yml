@@ -36,6 +36,8 @@ jobs:
       - run: npm install --global npm@10.8.2
       - run: npm ci --ignore-scripts
       - run: npm run verify
+      - run: node docs-site/prepare.mjs
+      - run: node docs-site/check.mjs docs-site/dist
 
   package:
     name: Canonical packed artifact
@@ -46,25 +48,25 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+          fetch-depth: 0
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 20.20.2
           cache: npm
       - run: npm install --global npm@10.8.2
       - run: npm ci --ignore-scripts
-      - run: npm run build
+      - name: Build the canonical unpublished artifact
+        env:
+          STACKLINE_ARTIFACT_VALIDATION_TAG: ${{ github.ref_type == 'tag' && github.ref_name || '' }}
+        run: npm run artifact:prepare
       - name: Record deterministic build inventory
         shell: bash
         run: |
-          node -e "const fs=require('fs'),path=require('path'),crypto=require('crypto');const files=[];function walk(p){for(const name of fs.readdirSync(p).sort()){const f=path.join(p,name);const s=fs.statSync(f);if(s.isDirectory())walk(f);else files.push(f)}}walk('dist');files.push('src/polyfills.ts','sbom.cdx.json');const rows=files.sort().map(f=>[f.split(path.sep).join('/'),crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex')]);fs.mkdirSync('artifact',{recursive:true});fs.writeFileSync('artifact/reproducibility-linux.json',JSON.stringify(rows,null,2)+'\n')"
-      - run: npm pack --ignore-scripts --pack-destination artifact
-      - name: Record tarball integrity
-        shell: bash
-        run: sha512sum artifact/*.tgz > artifact/SHA512SUMS
+          node -e "const fs=require('fs'),path=require('path'),crypto=require('crypto');const files=[];function walk(p){for(const name of fs.readdirSync(p).sort()){const f=path.join(p,name);const s=fs.statSync(f);if(s.isDirectory())walk(f);else files.push(f)}}walk('dist');files.push('src/polyfills.ts','sbom.cdx.json');const rows=files.sort().map(f=>[f.split(path.sep).join('/'),crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex')]);fs.writeFileSync('release-candidate/reproducibility-linux.json',JSON.stringify(rows,null,2)+'\n')"
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: npm-package
-          path: artifact/
+          path: release-candidate/
           if-no-files-found: error
           retention-days: 14
 
@@ -101,7 +103,7 @@ jobs:
           npm init --yes >/dev/null
           npm install --ignore-scripts --no-audit --no-fund --save-exact "rollup@${{ matrix.rollup }}" ../artifact/*.tgz
           npm ls --all
-      - name: Exercise CommonJS, ESM, node prefixes, URL, and util
+      - name: Exercise CommonJS, node prefixes, URL, and util
         working-directory: consumer
         shell: bash
         run: |
@@ -109,7 +111,6 @@ jobs:
           const assert = require('assert');
           const fs = require('fs');
           const path = require('path');
-          const { pathToFileURL } = require('url');
           const { rollup } = require('rollup');
 
           const source = `
@@ -163,20 +164,75 @@ jobs:
               onwarn
             });
             const cjsOutput = await cjsBundle.generate({ format: 'cjs', exports: 'named' });
+            await cjsBundle.close();
             assert.ok(!cjsOutput.output[0].code.includes('node:path'));
             fs.writeFileSync('bundle.cjs', cjsOutput.output[0].code);
             check(require(path.resolve('bundle.cjs')).observed);
+          })().catch(error => {
+            console.error(error);
+            process.exitCode = 1;
+          });
+          NODE
+      - name: Exercise ESM entry and output in a fresh process
+        working-directory: consumer
+        shell: bash
+        run: |
+          node <<'NODE'
+          const assert = require('assert');
+          const fs = require('fs');
+          const path = require('path');
+          const { pathToFileURL } = require('url');
+          const { rollup } = require('rollup');
 
-            const esmLoaded = await import('@stackline/rollup-plugin-polyfill-node');
-            assert.strictEqual(typeof esmLoaded.default, 'function');
-            const esmBundle = await rollup({
+          const source = `
+            import { join } from 'node:path';
+            import { URL, urlToHttpOptions } from 'node:url';
+            import { formatWithOptions } from 'node:util';
+            import types, { isMap } from 'node:util/types';
+            const converted = urlToHttpOptions(new URL('https://user:p%40ss@[2001:db8::1]:8443/a?q=1#hash'));
+            export const observed = {
+              joined: join('a', 'b'),
+              hostname: converted.hostname,
+              port: converted.port,
+              path: converted.path,
+              auth: converted.auth,
+              map: isMap(new Map()) && types.isMap(new Map()),
+              formatted: formatWithOptions({}, '%s %d %j %%', 'value', '2', { ok: true })
+            };
+          `;
+
+          const virtualEntry = () => ({
+            name: 'virtual-entry',
+            resolveId(id) { return id === 'entry.js' ? id : null; },
+            load(id) { return id === 'entry.js' ? source : null; }
+          });
+          const onwarn = warning => {
+            if (warning.code === 'UNRESOLVED_IMPORT' || warning.code === 'MISSING_EXPORT') {
+              throw new Error(`${warning.code}: ${warning.message}`);
+            }
+          };
+          const check = observed => {
+            assert.strictEqual(observed.joined, 'a/b');
+            assert.strictEqual(observed.hostname, '2001:db8::1');
+            assert.strictEqual(observed.port, 8443);
+            assert.strictEqual(observed.path, '/a?q=1');
+            assert.strictEqual(observed.auth, 'user:p@ss');
+            assert.strictEqual(observed.map, true);
+            assert.strictEqual(observed.formatted, 'value 2 {"ok":true} %');
+          };
+
+          (async () => {
+            const loaded = await import('@stackline/rollup-plugin-polyfill-node');
+            assert.strictEqual(typeof loaded.default, 'function');
+            const bundle = await rollup({
               input: 'entry.js',
-              plugins: [virtualEntry(), esmLoaded.default({ include: null })],
+              plugins: [virtualEntry(), loaded.default({ include: null })],
               onwarn
             });
-            const esmOutput = await esmBundle.generate({ format: 'es' });
-            assert.ok(!esmOutput.output[0].code.includes('node:path'));
-            fs.writeFileSync('bundle.mjs', esmOutput.output[0].code);
+            const output = await bundle.generate({ format: 'es' });
+            await bundle.close();
+            assert.ok(!output.output[0].code.includes('node:path'));
+            fs.writeFileSync('bundle.mjs', output.output[0].code);
             const evaluated = await import(pathToFileURL(path.resolve('bundle.mjs')).href);
             check(evaluated.observed);
           })().catch(error => {

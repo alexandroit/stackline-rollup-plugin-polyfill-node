@@ -43,6 +43,7 @@ const virtual = (source) => ({
   ].join(';');
   const bundle = await rollup.rollup({ input: 'entry', plugins: [virtual(source), polyfills({ include: null })] });
   const generated = await bundle.generate({ format: 'esm' });
+  await bundle.close();
   assert(!generated.output[0].code.includes("from 'node:path'"));
 
   await assert.rejects(

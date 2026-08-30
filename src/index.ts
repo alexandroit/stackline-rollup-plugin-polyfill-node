@@ -46,7 +46,8 @@ export default function (opts: NodePolyfillsOptions = {}): Plugin {
       }
       if (importee.startsWith('node:')) {
         const bareImportee = importee.slice(5);
-        if (NODE_BUILTINS.has(bareImportee) && mods.has(bareImportee)) {
+        const rootBuiltin = bareImportee.split('/')[0];
+        if ((NODE_BUILTINS.has(bareImportee) || NODE_BUILTINS.has(rootBuiltin)) && mods.has(bareImportee)) {
           importee = bareImportee;
         }
       }
@@ -55,12 +56,12 @@ export default function (opts: NodePolyfillsOptions = {}): Plugin {
       }
       if (importee === DIRNAME_PATH) {
         const id = getPathId(DIRNAME_PATH, basedir, importer);
-        dirs.set(id, dirname("/" + relative(basedir, importer || basedir)));
+        dirs.set(id, dirname("/" + relativePortable(basedir, importer)));
         return { id, moduleSideEffects: false };
       }
       if (importee === FILENAME_PATH) {
         const id = getPathId(FILENAME_PATH, basedir, importer);
-        dirs.set(id, "/" + relative(basedir, importer || basedir));
+        dirs.set(id, "/" + relativePortable(basedir, importer));
         return { id, moduleSideEffects: false };
       }
       if (importee && importee.slice(-1) === "/") {
@@ -96,7 +97,12 @@ export default function (opts: NodePolyfillsOptions = {}): Plugin {
 }
 
 function getPathId(type: string, basedir: string, importer?: string) {
-  return `${type}:${relative(basedir, importer || basedir)}`;
+  return `${type}:${relativePortable(basedir, importer)}`;
+}
+
+function relativePortable(basedir: string, importer?: string) {
+  const normalize = (value: string) => value.replace(/\\/g, '/');
+  return relative(normalize(basedir), normalize(importer || basedir));
 }
 
 function unsupportedBuiltinError(moduleName: string) {

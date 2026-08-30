@@ -3,6 +3,10 @@ lib
 dist
 node_modules
 artifact
+release-candidate/
+.release-candidate-staging-*/
+docs-site/dist/
+docs-site/.dist-staging-*/
 coverage
 .nyc_output
 .rollup.cache

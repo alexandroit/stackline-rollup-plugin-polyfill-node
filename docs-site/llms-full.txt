@@ -1,0 +1,265 @@
+# @stackline/rollup-plugin-polyfill-node full reference
+
+Canonical documentation: https://alexandro.net/docs/vanilla/rollup-plugin-polyfill-node/
+Package: https://www.npmjs.com/package/@stackline/rollup-plugin-polyfill-node
+Repository: https://github.com/alexandroit/stackline-rollup-plugin-polyfill-node
+
+`@stackline/rollup-plugin-polyfill-node@1.0.0` is an independent Stackline
+derivative of the MIT-licensed `rollup-plugin-polyfill-node@0.13.0` artifact at
+commit `31face71b94b8408a907f04753318dff589adc2f`. That package derives from
+`ionic-team/rollup-plugin-node-polyfills`. This project is not affiliated with
+or endorsed by Fred K. Schott, Ionic, Rollup, Node.js, or the OpenJS
+Foundation. Their names identify upstream projects and compatibility targets.
+
+## Installation
+
+Direct scoped install:
+
+`npm install --save-dev @stackline/rollup-plugin-polyfill-node@1.0.0`
+
+Historical-key npm alias:
+
+`npm install --save-dev "rollup-plugin-polyfill-node@npm:@stackline/rollup-plugin-polyfill-node@1.0.0"`
+
+The equivalent dependency value is:
+
+`"rollup-plugin-polyfill-node": "npm:@stackline/rollup-plugin-polyfill-node@^1.0.0"`
+
+That alias preserves imports from `rollup-plugin-polyfill-node` while the
+lockfile resolves the scoped package. Commit the package manifest and lockfile
+together and confirm that no independent historical `0.13.0` node remains.
+
+## Rollup configuration
+
+ES module configuration:
+
+```js
+import nodePolyfills from '@stackline/rollup-plugin-polyfill-node'
+
+export default {
+  input: 'src/index.js',
+  plugins: [nodePolyfills()]
+}
+```
+
+CommonJS configuration:
+
+```js
+const loaded = require('@stackline/rollup-plugin-polyfill-node')
+const nodePolyfills = loaded.default || loaded
+
+module.exports = {
+  input: 'src/index.js',
+  plugins: [nodePolyfills()]
+}
+```
+
+The plugin factory accepts:
+
+- `baseDir`, default `/`, for deterministic injected `__dirname` and
+  `__filename` values;
+- `include`, default `node_modules/**/*.js`, for global injection scope;
+- `exclude` for files excluded from global injection;
+- `sourceMap` for the injection transform; and
+- `crypto`, default false, for the narrowly preserved legacy crypto behavior.
+
+Setting `include: null` lets injected globals such as `Buffer`, `process`,
+`global`, `__dirname`, and `__filename` apply to application source as well as
+dependency code. These filters do not turn unsupported Node modules into
+supported modules.
+
+## Supported toolchain
+
+- Node.js running the plugin: 14 or newer.
+- Rollup peer range: `^1.20.0 || ^2.0.0 || ^3.0.0 || ^4.0.0`.
+- Package entry points: CommonJS and ESM.
+- Declaration baseline: TypeScript 3.9-compatible and current declarations.
+- Exact source verification: Node.js 20.20.2, 22.22.3, and 24.15.0.
+- Packed consumers: Node.js 14 through 24 and Rollup 1.32.1, 2.79.2,
+  3.29.5, and 4.63.1.
+- Build hosts: Linux, macOS, and Windows with cross-platform byte comparison.
+
+Older supported Node versions consume the packed artifact. They do not need to
+run the current TypeScript and release build toolchain.
+
+## Bare and node-prefixed specifiers
+
+Every supported represented built-in has one implementation. Valid `node:`
+forms normalize before lookup, so `path` and `node:path` have the same bundle
+behavior. The rule also covers `util/types` and `node:util/types`.
+
+The plugin does not strip `node:` from arbitrary strings. A pseudo-builtin such
+as `node:not-a-real-builtin` remains available to normal Rollup resolution and
+diagnostics rather than being rewritten to an unrelated package.
+
+## Supported module surface
+
+The supported families are:
+
+- `assert`;
+- `buffer`;
+- `constants`;
+- bounded `console`, `domain`, `http`, `https`, `os`, `tty`, and `vm`;
+- `events`;
+- `path`;
+- `process`;
+- `punycode`;
+- `querystring`;
+- `stream` and its internal compatibility corpus;
+- `string_decoder`;
+- `sys` as an alias of `util`;
+- `timers`;
+- bounded `url` and `util`; and
+- bounded JavaScript `zlib` derived from pako.
+
+Browser `http` and `https` use one fetch/XHR transport and do not expose Node
+sockets or agents. `vm` is an approximation, not a sandbox. Streams and modules
+built on streams contain cycles and are less tree-shakeable than small named
+exports. The normative boundary is SUPPORT_MATRIX.md.
+
+## URL compatibility
+
+`urlToHttpOptions` is a named and default-member export of `url` and
+`node:url`. Given a WHATWG `URL`, it projects:
+
+- protocol;
+- an unbracketed IPv6 hostname;
+- numeric port when present;
+- pathname, search, hash, and combined request path;
+- href; and
+- percent-decoded `username:password` auth when credentials are present.
+
+The conversion preserves enumerable extension properties, uses a null
+prototype for the returned options, and does not mutate the input URL. The
+browser must provide `URL` and `URLSearchParams` globals.
+
+## Util compatibility
+
+`util.types`, the default export of `util/types`, and the named exports from
+`util/types` expose exactly:
+
+- `isDate`;
+- `isMap`;
+- `isNativeError`; and
+- `isRegExp`.
+
+Unsupported `util.types` predicates are absent rather than guessed.
+
+`formatWithOptions(inspectOptions, ...values)` requires an object options
+argument. It supports `%s`, `%d`, `%i`, `%f`, `%j`, `%o`, `%O`, `%c`, and
+`%%`, plus inspected extra arguments. `%c` consumes styling input and emits no
+terminal text. Object rendering uses the bounded browser inspect
+implementation, and the caller's options object is not mutated.
+
+## Explicit fs and crypto boundary
+
+By default all named, default, namespace, and side-effect imports from `fs`,
+`node:fs`, `crypto`, or `node:crypto` fail during `resolveId`.
+
+Rollup surfaces:
+
+- outer code `PLUGIN_ERROR`;
+- plugin code `UNSUPPORTED_NODE_BUILTIN`;
+- plugin name `polyfill-node`; and
+- hook `resolveId`.
+
+The stable message is:
+
+`The Node.js "<name>" builtin is intentionally unsupported in browser bundles. Provide a browser implementation or mark the import as external.`
+
+Provide an explicit browser implementation where the application has a real
+contract. Mark an import external only when another build stage or deployment
+runtime deliberately supplies it; an external Node import left in an ordinary
+browser bundle fails at runtime.
+
+`nodePolyfills({ crypto: true })` is a legacy migration switch. Strict true
+selects the historical empty crypto module. Default and side-effect imports can
+therefore bundle an empty namespace, while named imports such as `randomBytes`
+still fail with Rollup `MISSING_EXPORT`. It does not load crypto-browserify and
+does not provide hashes, randomness, ciphers, or any security property.
+
+Other unsupported server modules, including `http2`, `dns`, `dgram`,
+`child_process`, `cluster`, `module`, `net`, `readline`, `repl`, `tls`, and
+`perf_hooks`, retain legacy no-export placeholders where documented. Other
+unmapped Node built-ins follow normal Rollup unresolved/external handling. None
+of those behaviors is a supported functional API.
+
+## Constants and generated paths
+
+`polyfills/constants.js` is frozen compatibility input with SHA-256
+`ba2bff6ccb95b773a7ab6460e633a64ff299796025c1e4317ee8f95a22109b6a`.
+Builds never sample the host's `require('constants')`, so Linux, macOS, and
+Windows cannot silently publish different errno, signal, TLS, or crypto values.
+
+Injected paths use deterministic POSIX-style module identifiers. `__filename`
+contains the importing module filename; it is not an alias of `__dirname`.
+
+## Migration from 0.13.0
+
+After changing the dependency or adding the npm alias:
+
+1. build once with any historical `node:`-stripping alias and record warnings
+   and output;
+2. remove only the prefix-stripping alias entry;
+3. rebuild with warnings treated as failures;
+4. verify that no supported `node:` import remains external;
+5. run the browser integration suite; and
+6. inspect the dependency tree and lockfile for one intended implementation.
+
+Do not strip all `node:` prefixes indiscriminately. That can hide unsupported
+server imports or redirect them to unrelated packages.
+
+Behavior changes include valid supported `node:` resolution,
+`urlToHttpOptions`, bounded util types and formatting, correct `__filename`,
+frozen constants, and explicit default `fs`/`crypto` failures.
+
+## Production dependency closure
+
+The package declares one direct production dependency:
+`@rollup/plugin-inject@5.0.5`. Its reviewed closure includes current
+`@rollup/pluginutils@5.4.0`, `magic-string@0.30.21`,
+`@jridgewell/sourcemap-codec@1.6.0`, `picomatch@4.0.7`,
+`@types/estree@1.0.9`, and the required CommonJS-compatible
+`estree-walker@2.0.2` line.
+
+Rollup is a consumer-supplied peer, not bundled application code. The exact
+lockfile-derived closure includes Rollup's platform packages for release
+verification. Every reviewed node is non-deprecated and MIT licensed, and the
+production audit records zero findings.
+
+## Reproducibility and release evidence
+
+A valid release requires:
+
+- clean source and production audits;
+- source tests plus packed CommonJS and ESM consumers;
+- Rollup 1, 2, 3, and 4 packed matrices on supported Node families;
+- Linux, macOS, and Windows generated-byte equality;
+- package export and declaration linting;
+- exact installed production-closure review;
+- retained root and vendored component notices;
+- VENDORED_COMPONENTS.json and a CycloneDX SBOM matching shipped bytes; and
+- one artifact identity across registry, repository, and documentation.
+
+A source-only test is not release evidence.
+
+## Security and reporting
+
+The browser `vm` polyfill is not a security boundary. The `crypto: true` empty
+shim has no cryptographic properties. Report an undisclosed vulnerability with
+GitHub private vulnerability reporting at
+https://github.com/alexandroit/stackline-rollup-plugin-polyfill-node/security/advisories/new.
+Do not disclose an unpatched vulnerability in a public issue.
+
+## License and provenance
+
+License: MIT, with additional retained notices for vendored components. The
+artifact preserves Fred K. Schott's 2020 notice, the Ionic-origin 2019 notice,
+Node.js/Joyent notices, buffer-es6's MIT and BSD-3-Clause inventory,
+process-es6's MIT notice, and pako's MIT notice. The browserify-fs and
+crypto-browserify inventories remain notice-only; those implementations are
+not shipped at runtime.
+
+See LICENSE.md, NOTICE, THIRD_PARTY_NOTICES.md, VENDORED_COMPONENTS.json, and
+PRODUCTION_DEPENDENCY_REVIEW.json in the canonical documentation or source
+repository.

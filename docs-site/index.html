@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Installation, compatibility, support, migration, and dependency-closure documentation for @stackline/rollup-plugin-polyfill-node.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#07141d">
+  <title>Alexandro.Net — @stackline/rollup-plugin-polyfill-node documentation</title>
+  <link rel="canonical" href="https://alexandro.net/docs/vanilla/rollup-plugin-polyfill-node/">
+  <link rel="alternate" type="text/plain" href="llms.txt" title="LLM summary">
+  <link rel="alternate" type="text/plain" href="llms-full.txt" title="Full LLM reference">
+  <meta property="og:title" content="@stackline/rollup-plugin-polyfill-node — bounded Node.js browser polyfills">
+  <meta property="og:description" content="A compatibility-focused Rollup 1–4 plugin with supported node: resolution, URL and util repairs, explicit fs/crypto boundaries, and deterministic artifacts.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://alexandro.net/docs/vanilla/rollup-plugin-polyfill-node/">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": "@stackline/rollup-plugin-polyfill-node",
+    "version": "1.0.0",
+    "description": "Compatibility-first Rollup polyfills for a documented subset of Node.js built-ins in browsers.",
+    "codeRepository": "https://github.com/alexandroit/stackline-rollup-plugin-polyfill-node",
+    "downloadUrl": "https://www.npmjs.com/package/@stackline/rollup-plugin-polyfill-node",
+    "url": "https://alexandro.net/docs/vanilla/rollup-plugin-polyfill-node/",
+    "license": "https://opensource.org/license/mit",
+    "programmingLanguage": ["TypeScript", "JavaScript"],
+    "runtimePlatform": "Node.js >=14; Rollup 1-4"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="https://alexandro.net/" aria-label="Alexandro.Net home">
+        <span>Alexandro.Net</span>
+        <span class="wordmark-subtitle">Open Source</span>
+      </a>
+      <nav class="top-nav" aria-label="Page navigation">
+        <a href="#install">Install</a>
+        <a href="#contract">Contract</a>
+        <a href="#support">Support</a>
+        <a href="#migration">Migration</a>
+        <a href="#closure">Dependency closure</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" tabindex="-1">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Rollup browser polyfills · bounded compatibility</p>
+        <h1 id="page-title">@stackline/<span>rollup-plugin-polyfill-node</span></h1>
+        <p class="lead">Resolve a documented subset of Node.js built-ins in browser bundles, including supported <code>node:</code> specifiers, without pretending that a browser is a Node server.</p>
+        <ul class="badges" aria-label="Package facts">
+          <li>v1.0.0</li>
+          <li>Node.js ≥14</li>
+          <li>Rollup 1–4</li>
+          <li>CommonJS + ESM</li>
+          <li>TypeScript 3.9+</li>
+          <li>MIT</li>
+        </ul>
+        <div class="hero-actions" aria-label="Package resources">
+          <a class="button primary" href="https://www.npmjs.com/package/@stackline/rollup-plugin-polyfill-node">View on npm</a>
+          <a class="button secondary" href="https://github.com/alexandroit/stackline-rollup-plugin-polyfill-node">Source on GitHub</a>
+        </div>
+      </div>
+
+      <aside class="install-panel" id="install" aria-labelledby="install-title">
+        <p class="panel-kicker">Pinned install</p>
+        <h2 id="install-title">Choose a package identity</h2>
+
+        <div class="command-block">
+          <div class="command-heading">
+            <span>Direct scoped install</span>
+            <button type="button" hidden data-copy-target="direct-install">Copy</button>
+          </div>
+          <pre aria-label="Direct scoped npm install command"><code id="direct-install"><!--email_off-->npm install --save-dev @stackline/rollup-plugin-polyfill-node@1.0.0<!--/email_off--></code></pre>
+        </div>
+
+        <div class="command-block">
+          <div class="command-heading">
+            <span>Keep the historical import</span>
+            <button type="button" hidden data-copy-target="alias-install">Copy</button>
+          </div>
+          <pre aria-label="Historical-key npm alias install command"><code id="alias-install"><!--email_off-->npm install --save-dev "rollup-plugin-polyfill-node@npm:@stackline/rollup-plugin-polyfill-node@1.0.0"<!--/email_off--></code></pre>
+        </div>
+
+        <p class="microcopy">The npm alias preserves the <code>rollup-plugin-polyfill-node</code> dependency key and import path while resolving the maintained scoped artifact.</p>
+        <p class="copy-status" aria-live="polite" data-copy-status>Copy controls are an optional enhancement; all documentation works without JavaScript.</p>
+      </aside>
+    </section>
+
+    <section class="status-callout" aria-labelledby="prefix-summary">
+      <div class="status-mark" aria-hidden="true">✓</div>
+      <div>
+        <h2 id="prefix-summary">One implementation for bare and <code>node:</code> imports</h2>
+        <p><code>path</code> and <code>node:path</code>, <code>url</code> and <code>node:url</code>, and the other supported built-ins resolve to the same reviewed browser modules. Arbitrary prefixes are not stripped.</p>
+      </div>
+    </section>
+
+    <section class="section" id="contract" aria-labelledby="contract-title">
+      <div class="section-heading">
+        <p class="eyebrow">Public contract</p>
+        <h2 id="contract-title">Focused repairs around a proven Rollup plugin</h2>
+        <p>The default export remains the plugin factory. Compatibility additions are bounded, named, and tested from packed CommonJS and ESM entry points.</p>
+      </div>
+
+      <div class="method-grid">
+        <article class="method-card featured">
+          <p class="method-kind">Plugin</p>
+          <h3><code>nodePolyfills(options?)</code></h3>
+          <p>Returns the Rollup plugin. Configure injected globals with <code>include</code>, <code>exclude</code>, <code>sourceMap</code>, and <code>baseDir</code>.</p>
+        </article>
+        <article class="method-card">
+          <p class="method-kind">Resolution</p>
+          <h3>Supported <code>node:</code> parity</h3>
+          <p>Valid represented built-ins normalize before module lookup. Unsupported or invented specifiers are never blindly rewritten.</p>
+        </article>
+        <article class="method-card">
+          <p class="method-kind">URL</p>
+          <h3><code>urlToHttpOptions(url)</code></h3>
+          <p>Projects protocol, IPv6 hostname, numeric port, pathname, search, hash, request path, href, and decoded auth from a WHATWG URL.</p>
+        </article>
+        <article class="method-card">
+          <p class="method-kind">Util types</p>
+          <h3><code>util.types</code> and <code>util/types</code></h3>
+          <p>Exports the bounded predicates <code>isDate</code>, <code>isMap</code>, <code>isNativeError</code>, and <code>isRegExp</code>.</p>
+        </article>
+        <article class="method-card">
+          <p class="method-kind">Formatting</p>
+          <h3><code>formatWithOptions(options, ...values)</code></h3>
+          <p>Supports the documented formatting tokens through the browser-safe inspect implementation without mutating the options object.</p>
+        </article>
+        <article class="method-card">
+          <p class="method-kind">Determinism</p>
+          <h3>Frozen constants and injected paths</h3>
+          <p>Constants are reviewed input rather than host samples. <code>__filename</code> and <code>__dirname</code> are distinct, deterministic POSIX-style values.</p>
+        </article>
+      </div>
+
+      <div class="example-grid">
+        <article>
+          <p class="fact-label">ES module configuration</p>
+          <pre><code>import nodePolyfills from '@stackline/rollup-plugin-polyfill-node'
+
+export default {
+  input: 'src/index.js',
+  plugins: [nodePolyfills()]
+}</code></pre>
+        </article>
+        <article>
+          <p class="fact-label">CommonJS configuration</p>
+          <pre><code>const loaded = require('@stackline/rollup-plugin-polyfill-node')
+const nodePolyfills = loaded.default || loaded
+
+module.exports = {
+  input: 'src/index.js',
+  plugins: [nodePolyfills()]
+}</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="support" aria-labelledby="support-title">
+      <div class="section-heading">
+        <p class="eyebrow">Compatibility boundary</p>
+        <h2 id="support-title">Supported modules are explicit; server APIs are not invented</h2>
+        <p>This package is a browser compatibility layer, not a Node.js runtime. “Supported” names a tested browser contract, not every undocumented Node behavior.</p>
+      </div>
+
+      <div class="table-wrap" tabindex="0" aria-label="Scrollable Node built-in support table">
+        <table>
+          <caption>Representative module groups; SUPPORT_MATRIX.md is normative</caption>
+          <thead>
+            <tr>
+              <th scope="col">Surface</th>
+              <th scope="col">Status</th>
+              <th scope="col">Boundary</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row"><code>path</code>, <code>events</code>, <code>querystring</code></th><td>Supported</td><td>Bare and <code>node:</code> imports share the browser implementation.</td></tr>
+            <tr><th scope="row"><code>buffer</code>, <code>process</code>, <code>stream</code></th><td>Supported / bounded</td><td>Browser implementations; streams have cycles and a larger tree-shaking cost.</td></tr>
+            <tr><th scope="row"><code>url</code>, <code>util</code>, <code>util/types</code></th><td>Supported / bounded</td><td>Includes the repaired named exports documented above.</td></tr>
+            <tr><th scope="row"><code>http</code>, <code>https</code>, <code>vm</code>, <code>zlib</code></th><td>Bounded</td><td>Browser transport or JavaScript approximations; no sockets, native bindings, or sandbox guarantee.</td></tr>
+            <tr><th scope="row"><code>fs</code>, <code>node:fs</code></th><td>Rejected</td><td>Every import form fails with <code>UNSUPPORTED_NODE_BUILTIN</code>.</td></tr>
+            <tr><th scope="row"><code>crypto</code>, <code>node:crypto</code></th><td>Rejected by default</td><td>Provide a browser implementation or mark the import external only when another runtime supplies it.</td></tr>
+            <tr><th scope="row"><code>http2</code>, <code>dns</code>, <code>net</code>, <code>tls</code> and process modules</th><td>Unsupported</td><td>Legacy no-export placeholders where documented; no functional API is promised.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="boundary-grid">
+        <article>
+          <p class="fact-label">Default filesystem boundary</p>
+          <h3><code>fs</code> always fails clearly</h3>
+          <p>Named, default, namespace, and side-effect imports in bare or <code>node:</code> form fail from <code>resolveId</code>. A browser storage API is not a Node filesystem.</p>
+        </article>
+        <article>
+          <p class="fact-label">Default crypto boundary</p>
+          <h3><code>crypto</code> fails clearly</h3>
+          <p>The stale crypto-browserify corpus is not shipped. Use Web Crypto deliberately, provide a reviewed alias, or keep the import external only for a supplying runtime.</p>
+        </article>
+        <article>
+          <p class="fact-label">Legacy migration only</p>
+          <h3><code>nodePolyfills({ crypto: true })</code></h3>
+          <p>Strict <code>true</code> selects the historical empty crypto shim. It provides no <code>randomBytes</code>, hashes, ciphers, or other named exports.</p>
+        </article>
+        <article>
+          <p class="fact-label">Stable diagnostic</p>
+          <h3><code>UNSUPPORTED_NODE_BUILTIN</code></h3>
+          <p>The error identifies the module and asks for a browser implementation or an intentional external import. No security equivalence is implied.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="migration" aria-labelledby="migration-title">
+      <div class="section-heading">
+        <p class="eyebrow">Migration</p>
+        <h2 id="migration-title">Adopt the scoped artifact without a flag day</h2>
+        <p>Change source imports directly or retain the historical key with npm's alias syntax. Commit the manifest and lockfile together.</p>
+      </div>
+
+      <div class="example-grid">
+        <article>
+          <p class="fact-label">Direct scoped dependency</p>
+          <pre><code>npm remove rollup-plugin-polyfill-node
+npm install --save-dev @stackline/rollup-plugin-polyfill-node@^1.0.0
+
+// rollup.config.mjs
+import nodePolyfills from '@stackline/rollup-plugin-polyfill-node'</code></pre>
+        </article>
+        <article>
+          <p class="fact-label">Historical-key alias</p>
+          <pre><code>{
+  "devDependencies": {
+    "rollup-plugin-polyfill-node":
+      "npm:@stackline/rollup-plugin-polyfill-node@^1.0.0"
+  }
+}</code></pre>
+        </article>
+      </div>
+
+      <aside class="callout">
+        <h3>Remove <code>node:</code>-stripping aliases only after comparison</h3>
+        <p>Build once with the old alias, migrate the package, remove only the prefix-stripping entry, then compare warnings, output, and browser tests. Do not strip <code>node:</code> globally: unsupported server imports must remain visible.</p>
+      </aside>
+    </section>
+
+    <section class="section" id="closure" aria-labelledby="dependency-title">
+      <div class="section-heading">
+        <p class="eyebrow">Production closure</p>
+        <h2 id="dependency-title">One direct dependency, one consumer-supplied Rollup peer</h2>
+        <p>The exact installed closure is materialized from the lockfile, audited, licensed, and included in the release SBOM. Rollup itself remains a peer dependency.</p>
+      </div>
+
+      <div class="table-wrap" tabindex="0" aria-label="Scrollable production dependency table">
+        <table>
+          <caption>Reviewed production and peer roles</caption>
+          <thead>
+            <tr>
+              <th scope="col">Package</th>
+              <th scope="col">Role</th>
+              <th scope="col">License</th>
+              <th scope="col">Decision</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row"><code>@rollup/plugin-inject@5.0.5</code></th><td>Direct production dependency</td><td>MIT</td><td>Pinned, maintained official Rollup plugin.</td></tr>
+            <tr><th scope="row"><code>@rollup/pluginutils@5.4.0</code></th><td>Transitive utility</td><td>MIT</td><td>Current maintained release.</td></tr>
+            <tr><th scope="row"><code>magic-string@0.30.21</code></th><td>Transform support</td><td>MIT</td><td>Maintained compatibility line.</td></tr>
+            <tr><th scope="row"><code>estree-walker@2.0.2</code></th><td>AST walking</td><td>MIT</td><td>Required CommonJS compatibility line.</td></tr>
+            <tr><th scope="row"><code>rollup</code></th><td>Consumer peer</td><td>MIT</td><td>Supported from 1.20.0 through major 4; exact packed matrices exercise every major.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="chain" role="img" aria-label="A source verification build produces one packed plugin artifact which is then tested with Rollup majors one through four.">
+        <div><span>Source</span><strong>Node 20 · 22 · 24</strong><small>build, tests, audits, licenses, SBOM, and deterministic output</small></div>
+        <span class="chain-arrow" aria-hidden="true">→</span>
+        <div><span>Artifact</span><strong>@stackline plugin tarball</strong><small>CommonJS and ESM entry points from one packed release unit</small></div>
+        <span class="chain-arrow" aria-hidden="true">→</span>
+        <div><span>Consumers</span><strong>Rollup 1 · 2 · 3 · 4</strong><small>Node 14 through 24 plus Linux, macOS, and Windows evidence</small></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="provenance-title">
+      <div class="section-heading">
+        <p class="eyebrow">Provenance and release gates</p>
+        <h2 id="provenance-title">Vendored browser code keeps its lineage</h2>
+        <p>The source baseline is <code>rollup-plugin-polyfill-node@0.13.0</code> at commit <code>31face71b94b8408a907f04753318dff589adc2f</code>, with shared Ionic history and retained component notices.</p>
+      </div>
+      <div class="callout">
+        <p class="fact-label">Artifact-shaped verification</p>
+        <p>A valid release requires clean source and production audits, package linting, the complete vendored notice inventory, a CycloneDX SBOM, packed CommonJS/ESM consumers, Rollup 1–4 coverage, and byte-identical Linux/macOS/Windows generated output. A source-only unit test is not release evidence.</p>
+      </div>
+    </section>
+
+    <section class="section resources" aria-labelledby="resources-title">
+      <div class="section-heading compact">
+        <p class="eyebrow">Reference</p>
+        <h2 id="resources-title">Source-level documentation</h2>
+      </div>
+      <ul class="resource-list">
+        <li><a href="README.md">README and plugin overview</a></li>
+        <li><a href="COMPATIBILITY.md">Compatibility contract</a></li>
+        <li><a href="SUPPORT_MATRIX.md">Normative support matrix</a></li>
+        <li><a href="MIGRATION.md">Migration guide</a></li>
+        <li><a href="PRODUCTION_DEPENDENCY_REVIEW.json">Production dependency review</a></li>
+        <li><a href="SECURITY.md">Security and private reporting</a></li>
+        <li><a href="THIRD_PARTY_NOTICES.md">Third-party notice inventory</a></li>
+        <li><a href="llms-full.txt">Full machine-readable reference</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>Alexandro.Net</strong> documents independently maintained open-source software.</p>
+    <p><code>@stackline/rollup-plugin-polyfill-node</code> is not affiliated with or endorsed by Fred K. Schott, Ionic, Rollup, Node.js, or the OpenJS Foundation. Those names identify upstream projects and compatibility targets only.</p>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

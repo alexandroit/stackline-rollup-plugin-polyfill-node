@@ -110,8 +110,8 @@ const packageJson = JSON.parse(packageBytes);
 const expectedTag = `stackline-v${packageJson.version}`;
 const validationTag = process.env.STACKLINE_ARTIFACT_VALIDATION_TAG || '';
 const builderNpm = runNpm(['--version']).trim();
-assert.equal(process.version, 'v20.20.2', 'artifact preparation requires Node.js 20.20.2');
-assert.equal(builderNpm, '10.8.2', 'artifact preparation requires npm 10.8.2');
+assert.equal(process.version, 'v24.20.0', 'artifact preparation requires Node.js 24.20.0');
+assert.equal(builderNpm, '11.19.0', 'artifact preparation requires npm 11.19.0');
 const sourceCommit = git(['rev-parse', '--verify', 'HEAD^{commit}']);
 assert.match(sourceCommit, /^[0-9a-f]{40}$/, 'artifact preparation requires a committed Git HEAD');
 assert.equal(

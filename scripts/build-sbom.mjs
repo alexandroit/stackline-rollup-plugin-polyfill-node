@@ -31,7 +31,7 @@ const runtimeComponents = closure.nodes.map((metadata) => {
       name,
       version: metadata.version,
       licenses: metadata.license ? [{ license: { id: metadata.license } }] : undefined,
-      purl: `pkg:npm/${encodeURIComponent(name).replace('%40', '@')}@${metadata.version}`,
+      purl: `pkg:npm/${name.split('/').map(encodeURIComponent).join('/')}@${encodeURIComponent(metadata.version)}`,
       properties: [
         { name: 'stackline:install-path', value: metadata.location },
         { name: 'stackline:optional', value: String(Boolean(metadata.optional)) },

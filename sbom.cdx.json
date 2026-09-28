@@ -37,7 +37,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@jridgewell%2Fsourcemap-codec@1.6.0",
+      "purl": "pkg:npm/%40jridgewell/sourcemap-codec@1.6.0",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -64,7 +64,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@napi-rs%2Flzma-linux-x64-gnu@1.5.1",
+      "purl": "pkg:npm/%40napi-rs/lzma-linux-x64-gnu@1.5.1",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -91,7 +91,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Fplugin-inject@5.0.5",
+      "purl": "pkg:npm/%40rollup/plugin-inject@5.0.5",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -118,7 +118,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Fpluginutils@5.4.0",
+      "purl": "pkg:npm/%40rollup/pluginutils@5.4.0",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -145,7 +145,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Frollup-android-arm-eabi@4.63.1",
+      "purl": "pkg:npm/%40rollup/rollup-android-arm-eabi@4.63.1",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -172,7 +172,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Frollup-android-arm64@4.63.1",
+      "purl": "pkg:npm/%40rollup/rollup-android-arm64@4.63.1",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -199,7 +199,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Frollup-darwin-arm64@4.63.1",
+      "purl": "pkg:npm/%40rollup/rollup-darwin-arm64@4.63.1",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -226,7 +226,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Frollup-darwin-x64@4.63.1",
+      "purl": "pkg:npm/%40rollup/rollup-darwin-x64@4.63.1",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -253,7 +253,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Frollup-freebsd-arm64@4.63.1",
+      "purl": "pkg:npm/%40rollup/rollup-freebsd-arm64@4.63.1",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -280,7 +280,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Frollup-freebsd-x64@4.63.1",
+      "purl": "pkg:npm/%40rollup/rollup-freebsd-x64@4.63.1",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -307,7 +307,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Frollup-linux-arm-gnueabihf@4.63.1",
+      "purl": "pkg:npm/%40rollup/rollup-linux-arm-gnueabihf@4.63.1",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -334,7 +334,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Frollup-linux-arm-musleabihf@4.63.1",
+      "purl": "pkg:npm/%40rollup/rollup-linux-arm-musleabihf@4.63.1",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -361,7 +361,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Frollup-linux-arm64-gnu@4.63.1",
+      "purl": "pkg:npm/%40rollup/rollup-linux-arm64-gnu@4.63.1",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -388,7 +388,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Frollup-linux-arm64-musl@4.63.1",
+      "purl": "pkg:npm/%40rollup/rollup-linux-arm64-musl@4.63.1",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -415,7 +415,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Frollup-linux-loong64-gnu@4.63.1",
+      "purl": "pkg:npm/%40rollup/rollup-linux-loong64-gnu@4.63.1",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -442,7 +442,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Frollup-linux-loong64-musl@4.63.1",
+      "purl": "pkg:npm/%40rollup/rollup-linux-loong64-musl@4.63.1",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -469,7 +469,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Frollup-linux-ppc64-gnu@4.63.1",
+      "purl": "pkg:npm/%40rollup/rollup-linux-ppc64-gnu@4.63.1",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -496,7 +496,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Frollup-linux-ppc64-musl@4.63.1",
+      "purl": "pkg:npm/%40rollup/rollup-linux-ppc64-musl@4.63.1",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -523,7 +523,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Frollup-linux-riscv64-gnu@4.63.1",
+      "purl": "pkg:npm/%40rollup/rollup-linux-riscv64-gnu@4.63.1",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -550,7 +550,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Frollup-linux-riscv64-musl@4.63.1",
+      "purl": "pkg:npm/%40rollup/rollup-linux-riscv64-musl@4.63.1",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -577,7 +577,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Frollup-linux-s390x-gnu@4.63.1",
+      "purl": "pkg:npm/%40rollup/rollup-linux-s390x-gnu@4.63.1",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -604,7 +604,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Frollup-linux-x64-gnu@4.63.1",
+      "purl": "pkg:npm/%40rollup/rollup-linux-x64-gnu@4.63.1",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -631,7 +631,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Frollup-linux-x64-musl@4.63.1",
+      "purl": "pkg:npm/%40rollup/rollup-linux-x64-musl@4.63.1",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -658,7 +658,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Frollup-openbsd-x64@4.63.1",
+      "purl": "pkg:npm/%40rollup/rollup-openbsd-x64@4.63.1",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -685,7 +685,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Frollup-openharmony-arm64@4.63.1",
+      "purl": "pkg:npm/%40rollup/rollup-openharmony-arm64@4.63.1",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -712,7 +712,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Frollup-win32-arm64-msvc@4.63.1",
+      "purl": "pkg:npm/%40rollup/rollup-win32-arm64-msvc@4.63.1",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -739,7 +739,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Frollup-win32-ia32-msvc@4.63.1",
+      "purl": "pkg:npm/%40rollup/rollup-win32-ia32-msvc@4.63.1",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -766,7 +766,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Frollup-win32-x64-gnu@4.63.1",
+      "purl": "pkg:npm/%40rollup/rollup-win32-x64-gnu@4.63.1",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -793,7 +793,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@rollup%2Frollup-win32-x64-msvc@4.63.1",
+      "purl": "pkg:npm/%40rollup/rollup-win32-x64-msvc@4.63.1",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -820,7 +820,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/@types%2Festree@1.0.9",
+      "purl": "pkg:npm/%40types/estree@1.0.9",
       "properties": [
         {
           "name": "stackline:install-path",
@@ -1864,7 +1864,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "339c53e24357425ed5b2c86b7bae27f0544f276d9cef7756f69ba43eadccf7a6"
+          "content": "b9559a2f386064e16db421e95860da187df4b13b6ca378313b30e1ff17ce818f"
         }
       ],
       "properties": [

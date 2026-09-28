@@ -180,6 +180,27 @@ async function expectUnsupportedBuiltin(importStatement, moduleName, filename) {
 describe('source compatibility', function() {
   this.timeout(10000);
 
+  it('preserves URL query data and auth delimiters when formatting repeated characters', async function() {
+    const generated = await bundleFixture('compat-url-format.js');
+    const format = runCommonJs(generated.code).format;
+    const nativeFormat = require('url').format;
+    const cases = [
+      { search: '?q=first#second#third', auth: 'user:password:with:colons' },
+      { search: '?q=##&other=#', auth: 'user@name:p@ss:word' },
+      { search: '?q=%23#literal', auth: 'user:%3A:password' },
+      { search: '?q=plain', auth: 'user:password' }
+    ];
+    for (const fields of cases) {
+      const input = Object.assign({ protocol: 'https:', hostname: 'example.test', pathname: '/a?#b', hash: '#fragment' }, fields);
+      const expected = nativeFormat(input);
+      const result = format(input);
+      assert.strictEqual(result, expected);
+      const parsed = new URL(result);
+      assert.strictEqual(parsed.search, input.search.replace(/#/g, '%23'));
+      assert.strictEqual(parsed.hash, '#fragment');
+    }
+  });
+
   it('bundles bare path and node:path identically with Rollup 4', async function() {
     assert.match(rollup.VERSION, /^4\./);
     const generated = await bundleFixture('compat-node-path.js');

@@ -2,6 +2,8 @@
 
 ## [1.0.1] - 2026-09-28
 
+- Escape every fragment delimiter in formatted URL queries and preserve authentication colons consistently with Node.js.
+- Encode scoped package names correctly in the generated dependency SBOM.
 - Organize package documentation, preserve API and migration examples, and add Stackline community links.
 - Improve package discovery keywords with precise domain terms and `stackline`.
 - Pin GitHub Actions release tooling and require an explicit missing-version response before publication.

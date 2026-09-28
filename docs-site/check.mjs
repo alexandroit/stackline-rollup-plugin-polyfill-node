@@ -220,7 +220,7 @@ includesAll(docs['THIRD_PARTY_NOTICES.md'], [
 assert(vendored.upstream.package === 'rollup-plugin-polyfill-node@0.13.0', 'vendored upstream package is wrong')
 assert(vendored.upstream.commit === '31face71b94b8408a907f04753318dff589adc2f', 'vendored upstream commit is wrong')
 assert(productionReview.root.name === packageName, 'production review root is wrong')
-assert(productionReview.root.version === '1.0.0', 'production review version is wrong')
+assert(productionReview.root.version === packageJson.version, 'production review version is wrong')
 assert(productionReview.advisoryEvidence.result === 'PASS_ZERO_FINDINGS', 'production review audit is not green')
 var injectReview = productionReview.reviews.find(function (review) { return review.name === '@rollup/plugin-inject' })
 assert(injectReview && injectReview.version === '5.0.5' && injectReview.classification === 'PASS', 'plugin-inject review is missing or wrong')

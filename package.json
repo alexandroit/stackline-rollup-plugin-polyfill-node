@@ -1,8 +1,16 @@
 {
   "name": "@stackline/rollup-plugin-polyfill-node",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Compatibility-first Rollup polyfills for supported Node.js built-ins in browsers",
-  "keywords": ["rollup", "rollup-plugin", "browser", "node", "polyfill", "stackline"],
+  "keywords": [
+    "rollup",
+    "rollup-plugin",
+    "browser",
+    "node",
+    "polyfill",
+    "stackline",
+    "node-polyfills"
+  ],
   "license": "MIT",
   "author": "Stackline maintainers",
   "contributors": [
@@ -23,7 +31,9 @@
   "typings": "./dist/index.d.cts",
   "typesVersions": {
     "<4.7": {
-      "*": ["dist/legacy.d.ts"]
+      "*": [
+        "dist/legacy.d.ts"
+      ]
     }
   },
   "type": "commonjs",

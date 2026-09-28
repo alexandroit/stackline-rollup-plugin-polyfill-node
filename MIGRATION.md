@@ -12,7 +12,7 @@ published by Fred K. Schott, Ionic, Rollup, or Node.js.
 
 ```bash
 npm remove rollup-plugin-polyfill-node
-npm install --save-dev @stackline/rollup-plugin-polyfill-node@^1.0.0
+npm install --save-dev @stackline/rollup-plugin-polyfill-node@^1.0.1
 ```
 
 ```diff
@@ -29,7 +29,7 @@ Use this exact command when source code or shared configuration must continue
 to import `rollup-plugin-polyfill-node`:
 
 ```bash
-npm install --save-dev "rollup-plugin-polyfill-node@npm:@stackline/rollup-plugin-polyfill-node@^1.0.0"
+npm install --save-dev "rollup-plugin-polyfill-node@npm:@stackline/rollup-plugin-polyfill-node@^1.0.1"
 ```
 
 It produces this dependency declaration:
@@ -37,7 +37,7 @@ It produces this dependency declaration:
 ```json
 {
   "devDependencies": {
-    "rollup-plugin-polyfill-node": "npm:@stackline/rollup-plugin-polyfill-node@^1.0.0"
+    "rollup-plugin-polyfill-node": "npm:@stackline/rollup-plugin-polyfill-node@^1.0.1"
   }
 }
 ```

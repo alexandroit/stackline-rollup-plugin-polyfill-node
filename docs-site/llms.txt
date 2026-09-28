@@ -1,13 +1,13 @@
 # @stackline/rollup-plugin-polyfill-node
 
-`@stackline/rollup-plugin-polyfill-node@1.0.0` is an independent,
+`@stackline/rollup-plugin-polyfill-node@1.0.1` is an independent,
 compatibility-focused derivative of `rollup-plugin-polyfill-node@0.13.0` for
 browser bundles built with Rollup. It supports Node.js 14 or newer, Rollup
 majors 1 through 4, CommonJS and ESM plugin entry points, and TypeScript
 3.9-compatible declarations.
 
-- Direct install: `npm install --save-dev @stackline/rollup-plugin-polyfill-node@1.0.0`
-- Historical-key alias: `npm install --save-dev "rollup-plugin-polyfill-node@npm:@stackline/rollup-plugin-polyfill-node@1.0.0"`
+- Direct install: `npm install --save-dev @stackline/rollup-plugin-polyfill-node@1.0.1`
+- Historical-key alias: `npm install --save-dev "rollup-plugin-polyfill-node@npm:@stackline/rollup-plugin-polyfill-node@1.0.1"`
 - Documentation: https://alexandro.net/docs/vanilla/rollup-plugin-polyfill-node/
 - Package: https://www.npmjs.com/package/@stackline/rollup-plugin-polyfill-node
 - Repository: https://github.com/alexandroit/stackline-rollup-plugin-polyfill-node

@@ -76,7 +76,7 @@ var canonical = 'https://alexandro.net/docs/vanilla/rollup-plugin-polyfill-node/
 var packageName = '@stackline/rollup-plugin-polyfill-node'
 
 assert(packageMetadata.name === packageName, 'package metadata identity is wrong')
-assert(packageMetadata.version === '1.0.0', 'package metadata version is wrong')
+assert(packageMetadata.version === '1.0.1', 'package metadata version is wrong')
 assert(packageMetadata.runtimeFloor === 'Node.js 14', 'package metadata runtime floor is wrong')
 assert(packageMetadata.moduleFormat === 'CommonJS and ESM', 'package metadata module format is wrong')
 assert(packageMetadata.productionDependencies === 1, 'package metadata dependency count is wrong')
@@ -104,8 +104,8 @@ includesAll(visibleHtml, [
   'aria-live="polite"',
   'role="img"',
   '<caption>',
-  'npm install --save-dev @stackline/rollup-plugin-polyfill-node@1.0.0',
-  'rollup-plugin-polyfill-node@npm:@stackline/rollup-plugin-polyfill-node@1.0.0',
+  'npm install --save-dev @stackline/rollup-plugin-polyfill-node@1.0.1',
+  'rollup-plugin-polyfill-node@npm:@stackline/rollup-plugin-polyfill-node@1.0.1',
   'Node.js ≥14',
   'Rollup 1–4',
   'CommonJS + ESM',
@@ -124,15 +124,15 @@ assert((html.match(/<h1(?:\s|>)/g) || []).length === 1, 'index.html must contain
 assert(html.length > 17500, 'index.html is unexpectedly thin')
 assert(html.indexOf('http://') === -1, 'index.html contains an insecure URL')
 assert(html.indexOf('localhost') === -1, 'index.html contains localhost')
-assert((html.match(/<!--email_off-->/g) || []).length === 2, 'index.html must protect two package-at-version strings')
-assert((html.match(/<!--\/email_off-->/g) || []).length === 2, 'email protection markers must balance')
+assert((html.match(/<!--email_off-->/g) || []).length === 9, 'index.html must protect 9 package-at-version text blocks')
+assert((html.match(/<!--\/email_off-->/g) || []).length === (html.match(/<!--email_off-->/g) || []).length, 'email protection markers must balance')
 
 var jsonLdMatch = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)
 assert(jsonLdMatch, 'index.html is missing JSON-LD')
 var jsonLd = JSON.parse(jsonLdMatch[1])
 assert(jsonLd['@type'] === 'SoftwareSourceCode', 'JSON-LD type is wrong')
 assert(jsonLd.name === packageName, 'JSON-LD package identity is wrong')
-assert(jsonLd.version === '1.0.0', 'JSON-LD package version is wrong')
+assert(jsonLd.version === '1.0.1', 'JSON-LD package version is wrong')
 assert(jsonLd.url === canonical, 'JSON-LD canonical URL is wrong')
 assert(jsonLd.runtimePlatform === 'Node.js >=14; Rollup 1-4', 'JSON-LD runtime platform is wrong')
 
@@ -166,9 +166,9 @@ locations.forEach(function (location) {
 
 ;[llms, llmsFull].forEach(function (value, index) {
   includesAll(value, [
-    '@stackline/rollup-plugin-polyfill-node@1.0.0',
+    '@stackline/rollup-plugin-polyfill-node@1.0.1',
     'rollup-plugin-polyfill-node@0.13.0',
-    'rollup-plugin-polyfill-node@npm:@stackline/rollup-plugin-polyfill-node@1.0.0',
+    'rollup-plugin-polyfill-node@npm:@stackline/rollup-plugin-polyfill-node@1.0.1',
     'Node.js 14',
     'Rollup',
     canonical,
@@ -201,7 +201,7 @@ includesAll(docs['SUPPORT_MATRIX.md'], [
 ], 'SUPPORT_MATRIX.md')
 
 includesAll(docs['MIGRATION.md'], [
-  'rollup-plugin-polyfill-node@npm:@stackline/rollup-plugin-polyfill-node@^1.0.0',
+  'rollup-plugin-polyfill-node@npm:@stackline/rollup-plugin-polyfill-node@^1.0.1',
   'Remove `node:` alias workarounds carefully',
   'nodePolyfills({ crypto: true })',
   'mark `fs` or `crypto` external'

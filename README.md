@@ -137,7 +137,7 @@ key with an npm alias:
 ```json
 {
   "devDependencies": {
-    "rollup-plugin-polyfill-node": "npm:@stackline/rollup-plugin-polyfill-node@^1.0.0"
+    "rollup-plugin-polyfill-node": "npm:@stackline/rollup-plugin-polyfill-node@^1.0.1"
   }
 }
 ```

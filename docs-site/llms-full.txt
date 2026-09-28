@@ -4,7 +4,7 @@ Canonical documentation: https://alexandro.net/docs/vanilla/rollup-plugin-polyfi
 Package: https://www.npmjs.com/package/@stackline/rollup-plugin-polyfill-node
 Repository: https://github.com/alexandroit/stackline-rollup-plugin-polyfill-node
 
-`@stackline/rollup-plugin-polyfill-node@1.0.0` is an independent Stackline
+`@stackline/rollup-plugin-polyfill-node@1.0.1` is an independent Stackline
 derivative of the MIT-licensed `rollup-plugin-polyfill-node@0.13.0` artifact at
 commit `31face71b94b8408a907f04753318dff589adc2f`. That package derives from
 `ionic-team/rollup-plugin-node-polyfills`. This project is not affiliated with
@@ -15,15 +15,15 @@ Foundation. Their names identify upstream projects and compatibility targets.
 
 Direct scoped install:
 
-`npm install --save-dev @stackline/rollup-plugin-polyfill-node@1.0.0`
+`npm install --save-dev @stackline/rollup-plugin-polyfill-node@1.0.1`
 
 Historical-key npm alias:
 
-`npm install --save-dev "rollup-plugin-polyfill-node@npm:@stackline/rollup-plugin-polyfill-node@1.0.0"`
+`npm install --save-dev "rollup-plugin-polyfill-node@npm:@stackline/rollup-plugin-polyfill-node@1.0.1"`
 
 The equivalent dependency value is:
 
-`"rollup-plugin-polyfill-node": "npm:@stackline/rollup-plugin-polyfill-node@^1.0.0"`
+`"rollup-plugin-polyfill-node": "npm:@stackline/rollup-plugin-polyfill-node@^1.0.1"`
 
 That alias preserves imports from `rollup-plugin-polyfill-node` while the
 lockfile resolves the scoped package. Commit the package manifest and lockfile

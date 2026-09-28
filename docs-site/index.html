@@ -21,7 +21,7 @@
     "@context": "https://schema.org",
     "@type": "SoftwareSourceCode",
     "name": "@stackline/rollup-plugin-polyfill-node",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Compatibility-first Rollup polyfills for a documented subset of Node.js built-ins in browsers.",
     "codeRepository": "https://github.com/alexandroit/stackline-rollup-plugin-polyfill-node",
     "downloadUrl": "https://www.npmjs.com/package/@stackline/rollup-plugin-polyfill-node",
@@ -58,7 +58,7 @@
         <h1 id="page-title">@stackline/<span>rollup-plugin-polyfill-node</span></h1>
         <p class="lead">Resolve a documented subset of Node.js built-ins in browser bundles, including supported <code>node:</code> specifiers, without pretending that a browser is a Node server.</p>
         <ul class="badges" aria-label="Package facts">
-          <li>v1.0.0</li>
+          <li>v1.0.1</li>
           <li>Node.js ≥14</li>
           <li>Rollup 1–4</li>
           <li>CommonJS + ESM</li>
@@ -80,7 +80,7 @@
             <span>Direct scoped install</span>
             <button type="button" hidden data-copy-target="direct-install">Copy</button>
           </div>
-          <pre aria-label="Direct scoped npm install command"><code id="direct-install"><!--email_off-->npm install --save-dev @stackline/rollup-plugin-polyfill-node@1.0.0<!--/email_off--></code></pre>
+          <pre aria-label="Direct scoped npm install command"><code id="direct-install"><!--email_off-->npm install --save-dev @stackline/rollup-plugin-polyfill-node@1.0.1<!--/email_off--></code></pre>
         </div>
 
         <div class="command-block">
@@ -88,7 +88,7 @@
             <span>Keep the historical import</span>
             <button type="button" hidden data-copy-target="alias-install">Copy</button>
           </div>
-          <pre aria-label="Historical-key npm alias install command"><code id="alias-install"><!--email_off-->npm install --save-dev "rollup-plugin-polyfill-node@npm:@stackline/rollup-plugin-polyfill-node@1.0.0"<!--/email_off--></code></pre>
+          <pre aria-label="Historical-key npm alias install command"><code id="alias-install"><!--email_off-->npm install --save-dev "rollup-plugin-polyfill-node@npm:@stackline/rollup-plugin-polyfill-node@1.0.1"<!--/email_off--></code></pre>
         </div>
 
         <p class="microcopy">The npm alias preserves the <code>rollup-plugin-polyfill-node</code> dependency key and import path while resolving the maintained scoped artifact.</p>
@@ -230,20 +230,20 @@ module.exports = {
       <div class="example-grid">
         <article>
           <p class="fact-label">Direct scoped dependency</p>
-          <pre><code>npm remove rollup-plugin-polyfill-node
-npm install --save-dev @stackline/rollup-plugin-polyfill-node@^1.0.0
+          <pre><code><!--email_off-->npm remove rollup-plugin-polyfill-node
+npm install --save-dev @stackline/rollup-plugin-polyfill-node@^1.0.1
 
 // rollup.config.mjs
-import nodePolyfills from '@stackline/rollup-plugin-polyfill-node'</code></pre>
+import nodePolyfills from '@stackline/rollup-plugin-polyfill-node'<!--/email_off--></code></pre>
         </article>
         <article>
           <p class="fact-label">Historical-key alias</p>
-          <pre><code>{
+          <pre><code><!--email_off-->{
   "devDependencies": {
     "rollup-plugin-polyfill-node":
-      "npm:@stackline/rollup-plugin-polyfill-node@^1.0.0"
+      "npm:@stackline/rollup-plugin-polyfill-node@^1.0.1"
   }
-}</code></pre>
+}<!--/email_off--></code></pre>
         </article>
       </div>
 
@@ -272,10 +272,10 @@ import nodePolyfills from '@stackline/rollup-plugin-polyfill-node'</code></pre>
             </tr>
           </thead>
           <tbody>
-            <tr><th scope="row"><code>@rollup/plugin-inject@5.0.5</code></th><td>Direct production dependency</td><td>MIT</td><td>Pinned, maintained official Rollup plugin.</td></tr>
-            <tr><th scope="row"><code>@rollup/pluginutils@5.4.0</code></th><td>Transitive utility</td><td>MIT</td><td>Current maintained release.</td></tr>
-            <tr><th scope="row"><code>magic-string@0.30.21</code></th><td>Transform support</td><td>MIT</td><td>Maintained compatibility line.</td></tr>
-            <tr><th scope="row"><code>estree-walker@2.0.2</code></th><td>AST walking</td><td>MIT</td><td>Required CommonJS compatibility line.</td></tr>
+            <tr><th scope="row"><code><!--email_off-->@rollup/plugin-inject@5.0.5<!--/email_off--></code></th><td>Direct production dependency</td><td>MIT</td><td>Pinned, maintained official Rollup plugin.</td></tr>
+            <tr><th scope="row"><code><!--email_off-->@rollup/pluginutils@5.4.0<!--/email_off--></code></th><td>Transitive utility</td><td>MIT</td><td>Current maintained release.</td></tr>
+            <tr><th scope="row"><code><!--email_off-->magic-string@0.30.21<!--/email_off--></code></th><td>Transform support</td><td>MIT</td><td>Maintained compatibility line.</td></tr>
+            <tr><th scope="row"><code><!--email_off-->estree-walker@2.0.2<!--/email_off--></code></th><td>AST walking</td><td>MIT</td><td>Required CommonJS compatibility line.</td></tr>
             <tr><th scope="row"><code>rollup</code></th><td>Consumer peer</td><td>MIT</td><td>Supported from 1.20.0 through major 4; exact packed matrices exercise every major.</td></tr>
           </tbody>
         </table>
@@ -294,7 +294,7 @@ import nodePolyfills from '@stackline/rollup-plugin-polyfill-node'</code></pre>
       <div class="section-heading">
         <p class="eyebrow">Provenance and release gates</p>
         <h2 id="provenance-title">Vendored browser code keeps its lineage</h2>
-        <p>The source baseline is <code>rollup-plugin-polyfill-node@0.13.0</code> at commit <code>31face71b94b8408a907f04753318dff589adc2f</code>, with shared Ionic history and retained component notices.</p>
+        <p>The source baseline is <code><!--email_off-->rollup-plugin-polyfill-node@0.13.0<!--/email_off--></code> at commit <code>31face71b94b8408a907f04753318dff589adc2f</code>, with shared Ionic history and retained component notices.</p>
       </div>
       <div class="callout">
         <p class="fact-label">Artifact-shaped verification</p>

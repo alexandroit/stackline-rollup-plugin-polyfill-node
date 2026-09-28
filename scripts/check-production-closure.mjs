@@ -17,6 +17,9 @@ const dependencyReview = JSON.parse(await readFile(
 if (dependencyReview.root?.classification !== 'PASS') {
   throw new Error('The root production-dependency review is not PASS');
 }
+if (`${dependencyReview.root.name}@${dependencyReview.root.version}` !== expected.root) {
+  throw new Error('The production-dependency review belongs to a different package version');
+}
 
 for (const review of dependencyReview.reviews) {
   const matches = expected.nodes.filter((node) => (

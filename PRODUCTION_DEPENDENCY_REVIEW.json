@@ -9,7 +9,7 @@
   },
   "root": {
     "name": "@stackline/rollup-plugin-polyfill-node",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "classification": "PASS",
     "license": "MIT"
   },
@@ -103,5 +103,11 @@
       "maintenance": "Current non-deprecated fixed release, published 2026-08-24",
       "source": "https://registry.npmjs.org/picomatch"
     }
-  ]
+  ],
+  "releaseValidation": {
+    "observedAt": "2026-09-28T15:55:38.970750+00:00",
+    "scope": "The exact production dependency graph is unchanged from the dated baseline; its root identity is bound to this release.",
+    "auditCommand": "npm audit --omit=dev --audit-level=low",
+    "auditFindings": 0
+  }
 }

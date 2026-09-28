@@ -84,7 +84,7 @@ assert(packageMetadata.peerRange === 'Rollup ^1.20.0 || ^2.0.0 || ^3.0.0 || ^4.0
 assert(packageMetadata.upstreamBaseline === 'rollup-plugin-polyfill-node 0.13.0', 'package metadata upstream baseline is wrong')
 
 assert(packageJson.name === packageName, 'package.json identity is wrong')
-assert(packageJson.version === '1.0.0', 'package.json version is wrong')
+assert(packageJson.version === '1.0.1', 'package.json version is wrong')
 assert(packageJson.engines && packageJson.engines.node === '>=14.0.0', 'package.json Node floor is wrong')
 assert(packageJson.peerDependencies && packageJson.peerDependencies.rollup === '^1.20.0 || ^2.0.0 || ^3.0.0 || ^4.0.0', 'package.json Rollup peer range is wrong')
 assert(packageJson.dependencies && packageJson.dependencies['@rollup/plugin-inject'] === '5.0.5', 'package.json production dependency is wrong')

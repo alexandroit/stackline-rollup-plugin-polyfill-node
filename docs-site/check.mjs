@@ -36,6 +36,7 @@ var siteFiles = [
 ]
 
 var rootFiles = [
+  'DEPENDENCY_UPDATES.md',
   'README.md',
   'CHANGELOG.md',
   'COMPATIBILITY.md',
@@ -76,7 +77,7 @@ var canonical = 'https://alexandro.net/docs/vanilla/rollup-plugin-polyfill-node/
 var packageName = '@stackline/rollup-plugin-polyfill-node'
 
 assert(packageMetadata.name === packageName, 'package metadata identity is wrong')
-assert(packageMetadata.version === '1.0.1', 'package metadata version is wrong')
+assert(packageMetadata.version === '1.0.2', 'package metadata version is wrong')
 assert(packageMetadata.runtimeFloor === 'Node.js 14', 'package metadata runtime floor is wrong')
 assert(packageMetadata.moduleFormat === 'CommonJS and ESM', 'package metadata module format is wrong')
 assert(packageMetadata.productionDependencies === 1, 'package metadata dependency count is wrong')
@@ -84,10 +85,10 @@ assert(packageMetadata.peerRange === 'Rollup ^1.20.0 || ^2.0.0 || ^3.0.0 || ^4.0
 assert(packageMetadata.upstreamBaseline === 'rollup-plugin-polyfill-node 0.13.0', 'package metadata upstream baseline is wrong')
 
 assert(packageJson.name === packageName, 'package.json identity is wrong')
-assert(packageJson.version === '1.0.1', 'package.json version is wrong')
+assert(packageJson.version === '1.0.2', 'package.json version is wrong')
 assert(packageJson.engines && packageJson.engines.node === '>=14.0.0', 'package.json Node floor is wrong')
 assert(packageJson.peerDependencies && packageJson.peerDependencies.rollup === '^1.20.0 || ^2.0.0 || ^3.0.0 || ^4.0.0', 'package.json Rollup peer range is wrong')
-assert(packageJson.dependencies && packageJson.dependencies['@rollup/plugin-inject'] === '5.0.5', 'package.json production dependency is wrong')
+assert(packageJson.dependencies && packageJson.dependencies['@rollup/plugin-inject'] === 'npm:@stackline/rollup-plugin-inject@1.0.0', 'package.json production dependency is wrong')
 assert(Object.keys(packageJson.dependencies).length === 1, 'package.json must have one direct production dependency')
 assert(packageJson.homepage === canonical, 'package.json homepage is not canonical')
 
@@ -104,14 +105,14 @@ includesAll(visibleHtml, [
   'aria-live="polite"',
   'role="img"',
   '<caption>',
-  'npm install --save-dev @stackline/rollup-plugin-polyfill-node@1.0.1',
-  'rollup-plugin-polyfill-node@npm:@stackline/rollup-plugin-polyfill-node@1.0.1',
+  'npm install --save-dev @stackline/rollup-plugin-polyfill-node@1.0.2',
+  'rollup-plugin-polyfill-node@npm:@stackline/rollup-plugin-polyfill-node@1.0.2',
   'Node.js ≥14',
   'Rollup 1–4',
   'CommonJS + ESM',
   'UNSUPPORTED_NODE_BUILTIN',
   'nodePolyfills({ crypto: true })',
-  '@rollup/plugin-inject@5.0.5',
+  '@stackline/rollup-plugin-inject@1.0.0',
   'not affiliated with or endorsed by'
 ], 'index.html')
 
@@ -132,7 +133,7 @@ assert(jsonLdMatch, 'index.html is missing JSON-LD')
 var jsonLd = JSON.parse(jsonLdMatch[1])
 assert(jsonLd['@type'] === 'SoftwareSourceCode', 'JSON-LD type is wrong')
 assert(jsonLd.name === packageName, 'JSON-LD package identity is wrong')
-assert(jsonLd.version === '1.0.1', 'JSON-LD package version is wrong')
+assert(jsonLd.version === '1.0.2', 'JSON-LD package version is wrong')
 assert(jsonLd.url === canonical, 'JSON-LD canonical URL is wrong')
 assert(jsonLd.runtimePlatform === 'Node.js >=14; Rollup 1-4', 'JSON-LD runtime platform is wrong')
 
@@ -166,9 +167,9 @@ locations.forEach(function (location) {
 
 ;[llms, llmsFull].forEach(function (value, index) {
   includesAll(value, [
-    '@stackline/rollup-plugin-polyfill-node@1.0.1',
+    '@stackline/rollup-plugin-polyfill-node@1.0.2',
     'rollup-plugin-polyfill-node@0.13.0',
-    'rollup-plugin-polyfill-node@npm:@stackline/rollup-plugin-polyfill-node@1.0.1',
+    'rollup-plugin-polyfill-node@npm:@stackline/rollup-plugin-polyfill-node@1.0.2',
     'Node.js 14',
     'Rollup',
     canonical,
@@ -176,7 +177,7 @@ locations.forEach(function (location) {
     'isMap',
     'UNSUPPORTED_NODE_BUILTIN',
     'crypto: true',
-    '@rollup/plugin-inject@5.0.5'
+    '@stackline/rollup-plugin-inject@1.0.0'
   ], index === 0 ? 'llms.txt' : 'llms-full.txt')
 })
 
@@ -201,7 +202,7 @@ includesAll(docs['SUPPORT_MATRIX.md'], [
 ], 'SUPPORT_MATRIX.md')
 
 includesAll(docs['MIGRATION.md'], [
-  'rollup-plugin-polyfill-node@npm:@stackline/rollup-plugin-polyfill-node@^1.0.1',
+  'rollup-plugin-polyfill-node@npm:@stackline/rollup-plugin-polyfill-node@^1.0.2',
   'Remove `node:` alias workarounds carefully',
   'nodePolyfills({ crypto: true })',
   'mark `fs` or `crypto` external'
@@ -222,8 +223,8 @@ assert(vendored.upstream.commit === '31face71b94b8408a907f04753318dff589adc2f', 
 assert(productionReview.root.name === packageName, 'production review root is wrong')
 assert(productionReview.root.version === packageJson.version, 'production review version is wrong')
 assert(productionReview.advisoryEvidence.result === 'PASS_ZERO_FINDINGS', 'production review audit is not green')
-var injectReview = productionReview.reviews.find(function (review) { return review.name === '@rollup/plugin-inject' })
-assert(injectReview && injectReview.version === '5.0.5' && injectReview.classification === 'PASS', 'plugin-inject review is missing or wrong')
+var injectReview = productionReview.reviews.find(function (review) { return review.name === '@stackline/rollup-plugin-inject' })
+assert(injectReview && injectReview.version === '1.0.0' && injectReview.classification === 'PASS', 'plugin-inject review is missing or wrong')
 
 var localLinkPattern = /(?:href|src)="([^"#][^"]*)"/g
 var localLinkMatch

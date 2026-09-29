@@ -17,6 +17,7 @@ var siteFiles = [
   'package-meta.json'
 ]
 var rootFiles = [
+  'DEPENDENCY_UPDATES.md',
   'README.md',
   'CHANGELOG.md',
   'COMPATIBILITY.md',

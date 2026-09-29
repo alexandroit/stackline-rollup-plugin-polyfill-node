@@ -1,6 +1,6 @@
 {
   "name": "@stackline/rollup-plugin-polyfill-node",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Compatibility-first Rollup polyfills for supported Node.js built-ins in browsers",
   "keywords": [
     "stackline",

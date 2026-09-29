@@ -4,13 +4,13 @@
 
 [![npm version](https://img.shields.io/npm/v/@stackline/rollup-plugin-polyfill-node.svg?style=flat-square)](https://www.npmjs.com/package/@stackline/rollup-plugin-polyfill-node)
 [![license](https://img.shields.io/npm/l/@stackline/rollup-plugin-polyfill-node.svg?style=flat-square)](https://github.com/alexandroit/stackline-rollup-plugin-polyfill-node)
-[![GitHub repository](https://img.shields.io/badge/GitHub-alexandroit%2Fstackline-rollup-plugin-polyfill-node-181717?style=flat-square&logo=github)](https://github.com/alexandroit/stackline-rollup-plugin-polyfill-node)
+[![GitHub repository](https://img.shields.io/badge/GitHub-repository-181717?style=flat-square&logo=github)](https://github.com/alexandroit/stackline-rollup-plugin-polyfill-node)
 [![Docs](https://img.shields.io/badge/docs-alexandro.net-0f766e?style=flat-square)](https://alexandro.net/docs/vanilla/rollup-plugin-polyfill-node/)
 [![Reddit community](https://img.shields.io/badge/community-r%2FStackline-ff4500?style=flat-square&logo=reddit&logoColor=white)](https://www.reddit.com/r/Stackline/)
 
 **[Documentation](https://alexandro.net/docs/vanilla/rollup-plugin-polyfill-node/)** | **[npm](https://www.npmjs.com/package/@stackline/rollup-plugin-polyfill-node)** | **[Issues](https://github.com/alexandroit/stackline-rollup-plugin-polyfill-node/issues)** | **[Repository](https://github.com/alexandroit/stackline-rollup-plugin-polyfill-node)**
 
-**Current package version:** `1.0.3`
+**Current package version:** `1.0.4`
 
 ---
 
@@ -56,7 +56,7 @@ This is a browser compatibility layer, not a Node.js runtime. Review the
 
 | Item | Value |
 | --- | --- |
-| Package | `@stackline/rollup-plugin-polyfill-node@1.0.3` |
+| Package | `@stackline/rollup-plugin-polyfill-node@1.0.4` |
 | Node.js runtime | `>=14.0.0` |
 | CommonJS / primary entry | `./dist/index.js` |
 | ES module entry | `./dist/es/index.js` |

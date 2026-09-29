@@ -4,7 +4,7 @@
     {
       "name": "@stackline/rollup-plugin-polyfill-node",
       "path": "README.md",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "baselineVersion": "1.0.2",
       "keywords": [
         "stackline",
@@ -22,8 +22,8 @@
       "homepage": "https://alexandro.net/docs/vanilla/rollup-plugin-polyfill-node/",
       "baselineTarball": "https://registry.npmjs.org/@stackline/rollup-plugin-polyfill-node/-/rollup-plugin-polyfill-node-1.0.2.tgz",
       "baselineIntegrity": "sha512-beKXI7OM8pc7ON64SEM6e4iM6adnSjwMl1lXTMMomZ27lBWG7X2ikdfXxVO+aSfefFo4G7Kx7Om/QdChWnChuQ==",
-      "expectedSha512": "0c96bc0eeac768b4b020f111d326d98ba1c41cae1fd157879d30072386b5b34d66bb4befd4f2c0f481fd0b4ac31e4f0e7a758e1a73cfce147f2159db2b711c91",
-      "tag": "docs-stackline-rollup-plugin-polyfill-node-v1.0.3"
+      "expectedSha512": "030d590d39dcc0b58a6d44864212f3ebabd93270e7cb6237078906479072fa2e343134d69cd69a7baca596ff8ddf792076b3c1bc9b6091c3623e67ff982c9f04",
+      "tag": "docs-stackline-rollup-plugin-polyfill-node-v1.0.4"
     }
   ]
 }

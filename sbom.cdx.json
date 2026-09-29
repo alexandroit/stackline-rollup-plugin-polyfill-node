@@ -1,14 +1,14 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
-  "serialNumber": "urn:uuid:b7a74979-6514-4bec-a1b0-7b7176f0ee4d",
+  "serialNumber": "urn:uuid:15321f0e-a2f0-463e-a749-901c327c35c3",
   "version": 1,
   "metadata": {
     "component": {
       "type": "library",
       "name": "@stackline/rollup-plugin-polyfill-node",
-      "version": "1.0.1",
-      "purl": "pkg:npm/%40stackline/rollup-plugin-polyfill-node@1.0.1"
+      "version": "1.0.2",
+      "purl": "pkg:npm/%40stackline/rollup-plugin-polyfill-node@1.0.2"
     },
     "properties": [
       {
@@ -82,8 +82,8 @@
     },
     {
       "type": "library",
-      "name": "@rollup/plugin-inject",
-      "version": "5.0.5",
+      "name": "@stackline/rollup-plugin-inject",
+      "version": "1.0.0",
       "licenses": [
         {
           "license": {
@@ -91,7 +91,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40rollup/plugin-inject@5.0.5",
+      "purl": "pkg:npm/%40stackline/rollup-plugin-inject@1.0.0",
       "properties": [
         {
           "name": "stackline:install-path",

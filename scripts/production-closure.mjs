@@ -61,7 +61,8 @@ export async function materializeProductionClosure(root) {
 
   const nodes = [...visited].sort().map((location) => {
     const metadata = packages[location];
-    const name = location.slice(location.lastIndexOf('node_modules/') + 13);
+    // npm aliases retain their import path but describe the installed package by name.
+    const name = metadata.name || location.slice(location.lastIndexOf('node_modules/') + 13);
     return {
       name,
       version: metadata.version,

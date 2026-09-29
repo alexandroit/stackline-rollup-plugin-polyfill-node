@@ -9,18 +9,18 @@
   },
   "root": {
     "name": "@stackline/rollup-plugin-polyfill-node",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "classification": "PASS",
     "license": "MIT"
   },
   "reviews": [
     {
-      "name": "@rollup/plugin-inject",
-      "version": "5.0.5",
+      "name": "@stackline/rollup-plugin-inject",
+      "version": "1.0.0",
       "classification": "PASS",
       "license": "MIT",
-      "maintenance": "Current non-deprecated release in the maintained official Rollup plugins repository",
-      "source": "https://registry.npmjs.org/@rollup%2fplugin-inject"
+      "maintenance": "Verified Stackline maintenance fork based on plugin-inject 5.0.5; original API, engines, and license retained.",
+      "source": "https://github.com/alexandroit/stackline-rollup-plugin-inject/releases/tag/stackline-v1.0.0"
     },
     {
       "name": "@rollup/pluginutils",
@@ -105,8 +105,8 @@
     }
   ],
   "releaseValidation": {
-    "observedAt": "2026-09-28T15:55:38.970750+00:00",
-    "scope": "The exact production dependency graph is unchanged from the dated baseline; its root identity is bound to this release.",
+    "observedAt": "2026-09-29T00:54:06.465020+00:00",
+    "scope": "Direct plugin-inject alias replaced by its verified Stackline maintenance fork. Remaining closure retains the compatible locked releases; source and production audits are required by CI.",
     "auditCommand": "npm audit --omit=dev --audit-level=low",
     "auditFindings": 0
   }

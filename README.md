@@ -11,7 +11,7 @@
 **[Issues](https://github.com/alexandroit/stackline-rollup-plugin-polyfill-node/issues)** |
 **[Repository](https://github.com/alexandroit/stackline-rollup-plugin-polyfill-node)**
 
-**Package version:** `1.0.1`
+**Package version:** `1.0.2`
 
 ## Why this package?
 
@@ -55,7 +55,7 @@ This is a browser compatibility layer, not a Node.js runtime. Review the
 
 | Item | Value |
 | --- | --- |
-| Package | `@stackline/rollup-plugin-polyfill-node@1.0.1` |
+| Package | `@stackline/rollup-plugin-polyfill-node@1.0.2` |
 | Node.js runtime | `>=14.0.0` |
 | CommonJS / primary entry | `./dist/index.js` |
 | ES module entry | `./dist/es/index.js` |
@@ -226,3 +226,5 @@ The plugin source is MIT licensed. Vendored polyfills retain their original
 notices and, where applicable, additional license terms. Distributing a bundle
 produced with this plugin may copy polyfill code into that bundle; downstream
 distributors are responsible for retaining the applicable notices.
+
+Dependency maintenance for this release is documented in [DEPENDENCY_UPDATES.md](DEPENDENCY_UPDATES.md).

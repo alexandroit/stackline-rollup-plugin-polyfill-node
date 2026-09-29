@@ -1,6 +1,6 @@
 {
   "name": "@stackline/rollup-plugin-polyfill-node",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Compatibility-first Rollup polyfills for supported Node.js built-ins in browsers",
   "keywords": [
     "rollup",
@@ -72,7 +72,8 @@
     "SUPPORT_MATRIX.md",
     "THIRD_PARTY_NOTICES.md",
     "VENDORED_COMPONENTS.json",
-    "sbom.cdx.json"
+    "sbom.cdx.json",
+    "DEPENDENCY_UPDATES.md"
   ],
   "engines": {
     "node": ">=14.0.0"
@@ -86,7 +87,7 @@
     }
   },
   "dependencies": {
-    "@rollup/plugin-inject": "5.0.5"
+    "@rollup/plugin-inject": "npm:@stackline/rollup-plugin-inject@1.0.0"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.5",

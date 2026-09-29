@@ -1,0 +1,29 @@
+{
+  "repository": "alexandroit/stackline-rollup-plugin-polyfill-node",
+  "packages": [
+    {
+      "name": "@stackline/rollup-plugin-polyfill-node",
+      "path": "README.md",
+      "version": "1.0.3",
+      "baselineVersion": "1.0.2",
+      "keywords": [
+        "stackline",
+        "npm-package",
+        "rollup-plugin-polyfill-node",
+        "nodejs",
+        "browser",
+        "typescript",
+        "rollup",
+        "rollup-plugin",
+        "node",
+        "polyfill",
+        "node-polyfills"
+      ],
+      "homepage": "https://alexandro.net/docs/vanilla/rollup-plugin-polyfill-node/",
+      "baselineTarball": "https://registry.npmjs.org/@stackline/rollup-plugin-polyfill-node/-/rollup-plugin-polyfill-node-1.0.2.tgz",
+      "baselineIntegrity": "sha512-beKXI7OM8pc7ON64SEM6e4iM6adnSjwMl1lXTMMomZ27lBWG7X2ikdfXxVO+aSfefFo4G7Kx7Om/QdChWnChuQ==",
+      "expectedSha512": "0c96bc0eeac768b4b020f111d326d98ba1c41cae1fd157879d30072386b5b34d66bb4befd4f2c0f481fd0b4ac31e4f0e7a758e1a73cfce147f2159db2b711c91",
+      "tag": "docs-stackline-rollup-plugin-polyfill-node-v1.0.3"
+    }
+  ]
+}
